@@ -1,8 +1,8 @@
 package com.xiaomo.funny.home
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.support.v7.app.AppCompatActivity
 import cn.jpush.android.api.JPushInterface
 import cn.jpush.android.data.JPushLocalNotification
 import com.code19.library.DeviceUtils
@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         text.text = appId + " regis: " + registrationID
         text.setOnClickListener({ fffff() })
+        topPanel.setOnClickListener({startActivity(Intent(this, X4Activity::class.java))})
     }
 
     fun fffff() {

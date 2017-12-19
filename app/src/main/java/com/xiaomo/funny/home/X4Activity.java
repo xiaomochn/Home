@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import cn.wch.ch34xuartdriver.CH34xUARTDriver;
+
 public class X4Activity extends Activity {
 
 	public static final String TAG = "cn.wch.wchusbdriver";
@@ -444,7 +446,7 @@ public class X4Activity extends Activity {
 	 *            需要转换的String对象
 	 * @return 转换后的byte[]数组
 	 */
-	private byte[] toByteArray(String arg) {
+	public static byte[] toByteArray(String arg) {
 		if (arg != null) {
 			/* 1.先去除String中的' '，然后将String转换为char数组 */
 			char[] NewArray = new char[1000];
