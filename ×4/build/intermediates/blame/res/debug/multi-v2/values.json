@@ -1,0 +1,64 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/xiaomochn/File/Home/×4/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/xiaomochn/File/Home/×4/src/main/res/values/dimens.xml",
+                    "from": {
+                        "startLines": "3,4",
+                        "startColumns": "4,4",
+                        "startOffsets": "92,151",
+                        "endColumns": "57,55",
+                        "endOffsets": "145,202"
+                    },
+                    "to": {
+                        "startLines": "38,39",
+                        "startColumns": "4,4",
+                        "startOffsets": "983,1041",
+                        "endColumns": "57,55",
+                        "endOffsets": "1036,1092"
+                    }
+                },
+                {
+                    "source": "/Users/xiaomochn/File/Home/×4/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "21,42,57,49,37,4,3,6,7,18,13,9,11,5,19,17,10,14,8,16,15",
+                        "startColumns": "4,1,1,1,1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "866,1366,1678,1511,1255,110,58,217,264,778,556,366,458,164,818,740,412,598,318,700,648",
+                        "endLines": "35,47,60,55,40,4,3,6,7,18,13,9,11,5,19,17,10,14,8,16,15",
+                        "endColumns": "16,16,16,16,16,52,50,46,51,39,41,45,37,52,42,37,45,49,45,39,51",
+                        "endOffsets": "1251,1507,1788,1674,1361,158,104,259,311,813,593,407,491,212,856,773,453,643,359,735,695"
+                    },
+                    "to": {
+                        "startLines": "2,17,23,27,34,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,445,591,706,872,1097,1150,1201,1248,1300,1340,1382,1428,1466,1519,1562,1600,1646,1696,1742,1782",
+                        "endLines": "16,22,26,33,37,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55",
+                        "endColumns": "16,16,16,16,16,52,50,46,51,39,41,45,37,52,42,37,45,49,45,39,51",
+                        "endOffsets": "440,586,701,867,978,1145,1196,1243,1295,1335,1377,1423,1461,1514,1557,1595,1641,1691,1737,1777,1829"
+                    }
+                },
+                {
+                    "source": "/Users/xiaomochn/File/Home/×4/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "6,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "191,522",
+                        "endLines": "12,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "481,679"
+                    },
+                    "to": {
+                        "startLines": "56,63",
+                        "startColumns": "4,4",
+                        "startOffsets": "1834,2125",
+                        "endLines": "62,65",
+                        "endColumns": "12,12",
+                        "endOffsets": "2120,2280"
+                    }
+                }
+            ]
+        }
+    ]
+}

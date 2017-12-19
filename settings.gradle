@@ -1,1 +1,1 @@
-include ':app', ':JPushExample', ':sky'
+include ':app', ':JPushExample', ':sky', ':×4'

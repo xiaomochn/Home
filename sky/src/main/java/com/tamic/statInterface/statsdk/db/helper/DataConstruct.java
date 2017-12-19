@@ -54,11 +54,12 @@ public class DataConstruct {
      */
     public static synchronized void initEvent(StaticsListener eventInterface, String eventName, Map<String, String> parameters) {
 
-        if (eventInterface == null || TextUtils.isEmpty(eventName)) {
+        if ( TextUtils.isEmpty(eventName)) {
+//            return;
             throw new RuntimeException("you must set eventName!");
         }
 
-        Event event = new Event();
+         event = new Event();
         event.setPage_id(pageId);
         event.setReferer_page_id(referPageId);
         event.setEvent_name(eventName);

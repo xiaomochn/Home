@@ -34,8 +34,9 @@ public class MainActivity extends BaseActivity {
                                 HashMap<String, String> map = new HashMap<String, String>();
                                 map.put("id1", "xxx");
                                 map.put("id2", "yyyy");
+                                map.put("id", "yyyy");
 
-//                                TcStatInterface.onEvent("open next", map);
+                                TcStatInterface.onEvent("open next", map);
 
                                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                                 startActivity(intent);
