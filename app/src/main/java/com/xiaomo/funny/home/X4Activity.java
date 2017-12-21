@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.xiaomo.funny.home.application.MyApp;
+
 import cn.wch.ch34xuartdriver.CH34xUARTDriver;
 
 public class X4Activity extends Activity {

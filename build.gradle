@@ -22,6 +22,30 @@ allprojects {
     }
 }
 
+ext {
+
+    compileSdkVersion = 25
+    buildToolsVersion = '25.0.0'
+
+
+    group = 'org.eclipse.paho'
+
+    sampleArchivesBaseName = 'org.eclipse.paho.android.sample'
+    sampleVersion = '1.1.1'
+
+    serviceArchivesBaseName = 'org.eclipse.paho.android.service'
+    serviceVersion = '1.1.1'
+
+    clientVersion = '1.1.0'
+
+    mavenUrl = "https://repo.eclipse.org/content/repositories/paho-releases/"
+
+    supportLibVersion = '26.0.0-beta1'
+//
+//    versionCode 1
+//    versionName "0.1"
+//    targetSdkVersion 10
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

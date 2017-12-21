@@ -4,8 +4,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.Toast;
+
+import com.xiaomo.funny.home.application.MyApp;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +29,7 @@ public class MyReceiver extends BroadcastReceiver {
 	private static final String TAG = "JIGUANG-Example";
 
 	@Override
-	public void onReceive(Context context, Intent intent) {
+	public void onReceive(final Context context, Intent intent) {
 		try {
 			Bundle bundle = intent.getExtras();
 			Logger.d(TAG, "[MyReceiver] onReceive - " + intent.getAction() + ", extras: " + printBundle(bundle));
@@ -37,8 +41,17 @@ public class MyReceiver extends BroadcastReceiver {
 
 			} else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
 				Logger.d(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
+				final String str = bundle.getString(JPushInterface.EXTRA_MESSAGE);
 				processCustomMessage(context, bundle);
-				byte[] to_send = X4Activity.toByteArray("13234");
+
+
+				byte[] to_send =str.getBytes();
+				new Handler(Looper.getMainLooper()).post(new Runnable() {
+					@Override
+					public void run() {
+						Toast.makeText(context,str,Toast.LENGTH_LONG).show();
+					}
+				});
 //				byte[] to_send = toByteArray2(writeText.getText().toString());
 				int retval = MyApp.driver.WriteData(to_send, to_send.length);//写数据，第一个参数为需要发送的字节数组，第二个参数为需要发送的字节长度，返回实际发送的字节长度
 				if (retval < 0)

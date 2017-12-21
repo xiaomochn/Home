@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/androidTest/debug/color/black_to_white.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/bundles/debug/res/color/black_to_white.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/androidTest/debug/color/white_to_black.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/bundles/debug/res/color/white_to_black.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/androidTest/debug/color/alpha_to_darker.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/bundles/debug/res/color/alpha_to_darker.xml"
+    }
+]

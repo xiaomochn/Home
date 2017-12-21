@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/left_push_in.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/left_push_in.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/right_push_out.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/right_push_out.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/push_out.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/push_out.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/right_push_in.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/right_push_in.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/fade.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/fade.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/bottom_window_enter.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/bottom_window_enter.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/bottom_push_in.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/bottom_push_in.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/null_anim.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/null_anim.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/push_in.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/push_in.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/bottom_push_out.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/bottom_push_out.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/bottom_window_exit.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/bottom_window_exit.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/hold.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/hold.xml"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/anim/left_push_out.xml",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/anim/left_push_out.xml"
+    }
+]

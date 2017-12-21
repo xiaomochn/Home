@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/forward_light.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/forward_light.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/up_light.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/up_light.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/back2_light.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/back2_light.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/cancel_light.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/cancel_light.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/triangle_up.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/triangle_up.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/add_small.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/add_small.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/add.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/add.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/xlistview_arrow.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/xlistview_arrow.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/cancel.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/cancel.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/forward2_light.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/forward2_light.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/back2.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/back2.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/triangle_down.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/triangle_down.png"
+    },
+    {
+        "merged": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/build/intermediates/res/merged/release/drawable-hdpi-v4/add_light.png",
+        "source": "/Users/xiaomochn/File/GitHub/Android-ZBLibrary/ZBLibrary(AndroidStudio)/ZBLibrary/src/main/res/drawable-hdpi/add_light.png"
+    }
+]

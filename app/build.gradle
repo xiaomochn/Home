@@ -14,9 +14,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [
-                JPUSH_PKGNAME : "com.xiaomo.funny.home",
+                JPUSH_PKGNAME: "com.xiaomo.funny.home",
                 JPUSH_APPKEY : "0128a7f5707ccf1b451ba8aa", //JPush上注册的包名对应的appkey.
-                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
     }
 
@@ -30,8 +30,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
@@ -39,4 +39,11 @@ dependencies {
     compile 'com.code19.library:library:0.1.4'
     compile 'cn.jiguang.sdk:jpush:3.1.0'  // 此处以JPush 3.0.9 版本为例。
     compile 'cn.jiguang.sdk:jcore:1.1.8'  // 此处以JCore 1.1.7 版本为例。
+    compile project(':ZBLibrary')
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+
+    compile 'com.code19.library:library:0.1.4'
+    compile 'com.orhanobut:logger:2.1.1'
+    compile 'com.hwangjr.rxbus:rxbus:1.0.6'
+
 }
