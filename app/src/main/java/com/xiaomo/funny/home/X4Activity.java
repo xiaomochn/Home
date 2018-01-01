@@ -71,6 +71,7 @@ public class X4Activity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+
 		MyApp.driver = new CH34xUARTDriver(
 				(UsbManager) getSystemService(Context.USB_SERVICE), this,
 				ACTION_USB_PERMISSION);
@@ -183,8 +184,9 @@ public class X4Activity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				byte[] to_send = toByteArray(writeText.getText().toString());
+//				byte[] to_send = toByteArray(writeText.getText().toString());
 //				byte[] to_send = toByteArray2(writeText.getText().toString());
+				byte[] to_send =writeText.getText().toString().getBytes();
 				int retval = MyApp.driver.WriteData(to_send, to_send.length);//写数据，第一个参数为需要发送的字节数组，第二个参数为需要发送的字节长度，返回实际发送的字节长度
 				if (retval < 0)
 					Toast.makeText(X4Activity.this, "写失败!",
@@ -408,8 +410,8 @@ public class X4Activity extends Activity {
 				}
 				int length = MyApp.driver.ReadData(buffer, 4096);
 				if (length > 0) {
-					String recv = toHexString(buffer, length);
-//					String recv = new String(buffer, 0, length);
+//					String recv = toHexString(buffer, length);
+					String recv = new String(buffer, 0, length);
 					msg.obj = recv;
 					handler.sendMessage(msg);
 				}

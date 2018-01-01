@@ -5,7 +5,7 @@
     android:versionName="1.2" >
 
     <uses-sdk
-        android:minSdkVersion="12"
+        android:minSdkVersion="15"
         android:targetSdkVersion="19" />
 
     <uses-feature android:name="android.hardware.usb.host" />
@@ -39,6 +39,10 @@
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
         </activity>
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.0.0-beta1" />
     </application>
 
 </manifest>

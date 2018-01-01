@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.xiaomo.funny.home.model.DBDao;
+import com.xiaomo.funny.home.model.UserDao;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -21,7 +24,7 @@ public class SQLHelper extends SQLiteOpenHelper {
 
 	public static final int TABLE_VERSION = 1;
 
-	public static final String TABLE_NAME = "zblibrary_demo";
+	public static final String TABLE_NAME = "xiaomo_db";
 	public static final String COLUMN_ID = "_id";//long类型的id不能自增，primary key autoincrement会出错
 	public static final String COLUMN_NAME = "name";
 	public static final String COLUMN_PHONE = "phone";
@@ -29,16 +32,20 @@ public class SQLHelper extends SQLiteOpenHelper {
 	public static final String COLUMN_OTHER = "other";
 
 
-	public SQLHelper(Context context) {
-		super(context, TABLE_NAME, null, TABLE_VERSION);
+	private DBDao mDBDao;
+	public SQLHelper(Context context, DBDao dao) {
+
+		super(context, dao.getTabletName(), null, TABLE_VERSION);
+		mDBDao = dao;
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		String sql = "CREATE TABLE " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER primary key autoincrement, "
+
+		String sql = "CREATE TABLE " + getDatabaseName() + " (" + COLUMN_ID + " INTEGER primary key autoincrement, "
 				+ COLUMN_NAME + " text, " + COLUMN_PHONE + " text, " + COLUMN_MAIL + " text, " + COLUMN_OTHER + " text)";
 
-		db.execSQL(sql);
+		db.execSQL(mDBDao.getCreatStr());
 	}
 
 	@Override

@@ -36,14 +36,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
-    compile 'com.code19.library:library:0.1.4'
-    compile 'cn.jiguang.sdk:jpush:3.1.0'  // 此处以JPush 3.0.9 版本为例。
-    compile 'cn.jiguang.sdk:jcore:1.1.8'  // 此处以JCore 1.1.7 版本为例。
-    compile project(':ZBLibrary')
+    implementation 'com.code19.library:library:0.1.4'
+    implementation 'cn.jiguang.sdk:jpush:3.1.0'  // 此处以JPush 3.0.9 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:1.1.8'  // 此处以JCore 1.1.7 版本为例。
+    implementation project(':ZBLibrary')
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
-
-    compile 'com.code19.library:library:0.1.4'
-    compile 'com.orhanobut:logger:2.1.1'
-    compile 'com.hwangjr.rxbus:rxbus:1.0.6'
+    implementation 'com.orhanobut:logger:2.1.1'
+    implementation 'com.hwangjr.rxbus:rxbus:2.0.0'
 
 }

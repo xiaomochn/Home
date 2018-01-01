@@ -63,7 +63,7 @@ public class X4Activity extends Activity {
 	public boolean READ_ENABLE = false;
 	public SharedPreferences sharePrefSettings;
 	public String act_string;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -72,67 +72,67 @@ public class X4Activity extends Activity {
 				(UsbManager) getSystemService(Context.USB_SERVICE), this,
 				ACTION_USB_PERMISSION);
 		initUI();
-		if (!MyApp.driver.UsbFeatureSupported())// ÅĞ¶ÏÏµÍ³ÊÇ·ñÖ§³ÖUSB HOST
+		if (!MyApp.driver.UsbFeatureSupported())// åˆ¤æ–­ç³»ç»Ÿæ˜¯å¦æ”¯æŒUSB HOST
 		{
 			Dialog dialog = new AlertDialog.Builder(X4Activity.this)
-					.setTitle("ÌáÊ¾")
-					.setMessage("ÄúµÄÊÖ»ú²»Ö§³ÖUSB HOST£¬Çë¸ü»»ÆäËûÊÖ»úÔÙÊÔ£¡")
-					.setPositiveButton("È·ÈÏ",
+					.setTitle("æç¤º")
+					.setMessage("æ‚¨çš„æ‰‹æœºä¸æ”¯æŒUSB HOSTï¼Œè¯·æ›´æ¢å…¶ä»–æ‰‹æœºå†è¯•ï¼")
+					.setPositiveButton("ç¡®è®¤",
 							new DialogInterface.OnClickListener() {
 
 								@Override
 								public void onClick(DialogInterface arg0,
-										int arg1) {
+													int arg1) {
 									System.exit(0);
 								}
 							}).create();
 			dialog.setCanceledOnTouchOutside(false);
 			dialog.show();
 		}
-		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);// ±£³Ö³£ÁÁµÄÆÁÄ»µÄ×´Ì¬
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);// ä¿æŒå¸¸äº®çš„å±å¹•çš„çŠ¶æ€
 		writeBuffer = new byte[512];
 		readBuffer = new byte[512];
 		isOpen = false;
 		configButton.setEnabled(false);
 		writeButton.setEnabled(false);
 		activity = this;
-		
-		//´ò¿ªÁ÷³ÌÖ÷Òª²½ÖèÎªResumeUsbList£¬UartInit
+
+		//æ‰“å¼€æµç¨‹ä¸»è¦æ­¥éª¤ä¸ºResumeUsbListï¼ŒUartInit
 		openButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				if (!isOpen) {
 					retval = MyApp.driver.ResumeUsbList();
-					if (retval == -1)// ResumeUsbList·½·¨ÓÃÓÚÃ¶¾ÙCH34XÉè±¸ÒÔ¼°´ò¿ªÏà¹ØÉè±¸
+					if (retval == -1)// ResumeUsbListæ–¹æ³•ç”¨äºæšä¸¾CH34Xè®¾å¤‡ä»¥åŠæ‰“å¼€ç›¸å…³è®¾å¤‡
 					{
-						Toast.makeText(X4Activity.this, "´ò¿ªÉè±¸Ê§°Ü!",
+						Toast.makeText(X4Activity.this, "æ‰“å¼€è®¾å¤‡å¤±è´¥!",
 								Toast.LENGTH_SHORT).show();
 						MyApp.driver.CloseDevice();
 					} else if (retval == 0){
-						if (!MyApp.driver.UartInit()) {//¶Ô´®¿ÚÉè±¸½øĞĞ³õÊ¼»¯²Ù×÷
-							Toast.makeText(X4Activity.this, "Éè±¸³õÊ¼»¯Ê§°Ü!",
+						if (!MyApp.driver.UartInit()) {//å¯¹ä¸²å£è®¾å¤‡è¿›è¡Œåˆå§‹åŒ–æ“ä½œ
+							Toast.makeText(X4Activity.this, "è®¾å¤‡åˆå§‹åŒ–å¤±è´¥!",
 									Toast.LENGTH_SHORT).show();
-							Toast.makeText(X4Activity.this, "´ò¿ª" +
-									"Éè±¸Ê§°Ü!",
+							Toast.makeText(X4Activity.this, "æ‰“å¼€" +
+											"è®¾å¤‡å¤±è´¥!",
 									Toast.LENGTH_SHORT).show();
 							return;
 						}
-						Toast.makeText(X4Activity.this, "´ò¿ªÉè±¸³É¹¦!",
+						Toast.makeText(X4Activity.this, "æ‰“å¼€è®¾å¤‡æˆåŠŸ!",
 								Toast.LENGTH_SHORT).show();
 						isOpen = true;
 						openButton.setText("Close");
 						configButton.setEnabled(true);
 						writeButton.setEnabled(true);
-						new readThread().start();//¿ªÆô¶ÁÏß³Ì¶ÁÈ¡´®¿Ú½ÓÊÕµÄÊı¾İ
+						new readThread().start();//å¼€å¯è¯»çº¿ç¨‹è¯»å–ä¸²å£æ¥æ”¶çš„æ•°æ®
 					} else {
-						
+
 						AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 						builder.setIcon(R.drawable.icon);
-						builder.setTitle("Î´ÊÚÈ¨ÏŞ");
-						builder.setMessage("È·ÈÏÍË³öÂğ£¿");
-						builder.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
-							
+						builder.setTitle("æœªæˆæƒé™");
+						builder.setMessage("ç¡®è®¤é€€å‡ºå—ï¼Ÿ");
+						builder.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
+
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
 								// TODO Auto-generated method stub
@@ -140,16 +140,16 @@ public class X4Activity extends Activity {
 								System.exit(0);
 							}
 						});
-						builder.setNegativeButton("·µ»Ø", new DialogInterface.OnClickListener() {
-							
+						builder.setNegativeButton("è¿”å›", new DialogInterface.OnClickListener() {
+
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
 								// TODO Auto-generated method stub
-								
+
 							}
 						});
 						builder.show();
-						
+
 					}
 				} else {
 					MyApp.driver.CloseDevice();
@@ -166,12 +166,12 @@ public class X4Activity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 
-				if (MyApp.driver.SetConfig(baudRate, dataBit, stopBit, parity,//ÅäÖÃ´®¿Ú²¨ÌØÂÊ£¬º¯ÊıËµÃ÷¿É²ÎÕÕ±à³ÌÊÖ²á
+				if (MyApp.driver.SetConfig(baudRate, dataBit, stopBit, parity,//é…ç½®ä¸²å£æ³¢ç‰¹ç‡ï¼Œå‡½æ•°è¯´æ˜å¯å‚ç…§ç¼–ç¨‹æ‰‹å†Œ
 						flowControl)) {
-					Toast.makeText(X4Activity.this, "´®¿ÚÉèÖÃ³É¹¦!",
+					Toast.makeText(X4Activity.this, "ä¸²å£è®¾ç½®æˆåŠŸ!",
 							Toast.LENGTH_SHORT).show();
 				} else {
-					Toast.makeText(X4Activity.this, "´®¿ÚÉèÖÃÊ§°Ü!",
+					Toast.makeText(X4Activity.this, "ä¸²å£è®¾ç½®å¤±è´¥!",
 							Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -182,9 +182,9 @@ public class X4Activity extends Activity {
 			public void onClick(View arg0) {
 				byte[] to_send = toByteArray(writeText.getText().toString());
 //				byte[] to_send = toByteArray2(writeText.getText().toString());
-				int retval = MyApp.driver.WriteData(to_send, to_send.length);//Ğ´Êı¾İ£¬µÚÒ»¸ö²ÎÊıÎªĞèÒª·¢ËÍµÄ×Ö½ÚÊı×é£¬µÚ¶ş¸ö²ÎÊıÎªĞèÒª·¢ËÍµÄ×Ö½Ú³¤¶È£¬·µ»ØÊµ¼Ê·¢ËÍµÄ×Ö½Ú³¤¶È
+				int retval = MyApp.driver.WriteData(to_send, to_send.length);//å†™æ•°æ®ï¼Œç¬¬ä¸€ä¸ªå‚æ•°ä¸ºéœ€è¦å‘é€çš„å­—èŠ‚æ•°ç»„ï¼Œç¬¬äºŒä¸ªå‚æ•°ä¸ºéœ€è¦å‘é€çš„å­—èŠ‚é•¿åº¦ï¼Œè¿”å›å®é™…å‘é€çš„å­—èŠ‚é•¿åº¦
 				if (retval < 0)
-					Toast.makeText(X4Activity.this, "Ğ´Ê§°Ü!",
+					Toast.makeText(X4Activity.this, "å†™å¤±è´¥!",
 							Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -199,7 +199,7 @@ public class X4Activity extends Activity {
 
 	}
 
-	//´¦Àí½çÃæ
+	//å¤„ç†ç•Œé¢
 	private void initUI() {
 		readText = (EditText) findViewById(R.id.ReadValues);
 		writeText = (EditText) findViewById(R.id.WriteValues);
@@ -290,7 +290,7 @@ public class X4Activity extends Activity {
 
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view,
-				int position, long id) {
+								   int position, long id) {
 			baudRate = Integer.parseInt(parent.getItemAtPosition(position)
 					.toString());
 		}
@@ -305,7 +305,7 @@ public class X4Activity extends Activity {
 
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view,
-				int position, long id) {
+								   int position, long id) {
 			stopBit = (byte) Integer.parseInt(parent
 					.getItemAtPosition(position).toString());
 		}
@@ -321,7 +321,7 @@ public class X4Activity extends Activity {
 
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view,
-				int position, long id) {
+								   int position, long id) {
 			dataBit = (byte) Integer.parseInt(parent
 					.getItemAtPosition(position).toString());
 		}
@@ -337,7 +337,7 @@ public class X4Activity extends Activity {
 
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view,
-				int position, long id) {
+								   int position, long id) {
 			String parityString = new String(parent.getItemAtPosition(position)
 					.toString());
 			if (parityString.compareTo("None") == 0) {
@@ -372,7 +372,7 @@ public class X4Activity extends Activity {
 
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view,
-				int position, long id) {
+								   int position, long id) {
 			String flowString = new String(parent.getItemAtPosition(position)
 					.toString());
 			if (flowString.compareTo("None") == 0) {
@@ -396,9 +396,9 @@ public class X4Activity extends Activity {
 		public void run() {
 
 			byte[] buffer = new byte[4096];
-			
+
 			while (true) {
-				
+
 				Message msg = Message.obtain();
 				if (!isOpen) {
 					break;
@@ -415,12 +415,12 @@ public class X4Activity extends Activity {
 	}
 
 	/**
-	 * ½«byte[]Êı×é×ª»¯ÎªStringÀàĞÍ
+	 * å°†byte[]æ•°ç»„è½¬åŒ–ä¸ºStringç±»å‹
 	 * @param arg
-	 *            ĞèÒª×ª»»µÄbyte[]Êı×é
+	 *            éœ€è¦è½¬æ¢çš„byte[]æ•°ç»„
 	 * @param length
-	 *            ĞèÒª×ª»»µÄÊı×é³¤¶È
-	 * @return ×ª»»ºóµÄString¶ÓĞÎ
+	 *            éœ€è¦è½¬æ¢çš„æ•°ç»„é•¿åº¦
+	 * @return è½¬æ¢åçš„Stringé˜Ÿå½¢
 	 */
 	private String toHexString(byte[] arg, int length) {
 		String result = new String();
@@ -428,11 +428,11 @@ public class X4Activity extends Activity {
 			for (int i = 0; i < length; i++) {
 				result = result
 						+ (Integer.toHexString(
-								arg[i] < 0 ? arg[i] + 256 : arg[i]).length() == 1 ? "0"
-								+ Integer.toHexString(arg[i] < 0 ? arg[i] + 256
-										: arg[i])
-								: Integer.toHexString(arg[i] < 0 ? arg[i] + 256
-										: arg[i])) + " ";
+						arg[i] < 0 ? arg[i] + 256 : arg[i]).length() == 1 ? "0"
+						+ Integer.toHexString(arg[i] < 0 ? arg[i] + 256
+						: arg[i])
+						: Integer.toHexString(arg[i] < 0 ? arg[i] + 256
+						: arg[i])) + " ";
 			}
 			return result;
 		}
@@ -440,14 +440,14 @@ public class X4Activity extends Activity {
 	}
 
 	/**
-	 * ½«String×ª»¯Îªbyte[]Êı×é
+	 * å°†Stringè½¬åŒ–ä¸ºbyte[]æ•°ç»„
 	 * @param arg
-	 *            ĞèÒª×ª»»µÄString¶ÔÏó
-	 * @return ×ª»»ºóµÄbyte[]Êı×é
+	 *            éœ€è¦è½¬æ¢çš„Stringå¯¹è±¡
+	 * @return è½¬æ¢åçš„byte[]æ•°ç»„
 	 */
 	private byte[] toByteArray(String arg) {
 		if (arg != null) {
-			/* 1.ÏÈÈ¥³ıStringÖĞµÄ' '£¬È»ºó½«String×ª»»ÎªcharÊı×é */
+			/* 1.å…ˆå»é™¤Stringä¸­çš„' 'ï¼Œç„¶åå°†Stringè½¬æ¢ä¸ºcharæ•°ç»„ */
 			char[] NewArray = new char[1000];
 			char[] array = arg.toCharArray();
 			int length = 0;
@@ -457,7 +457,7 @@ public class X4Activity extends Activity {
 					length++;
 				}
 			}
-			/* ½«charÊı×éÖĞµÄÖµ×ª³ÉÒ»¸öÊµ¼ÊµÄÊ®½øÖÆÊı×é */
+			/* å°†charæ•°ç»„ä¸­çš„å€¼è½¬æˆä¸€ä¸ªå®é™…çš„åè¿›åˆ¶æ•°ç»„ */
 			int EvenLength = (length % 2 == 0) ? length : length + 1;
 			if (EvenLength != 0) {
 				int[] data = new int[EvenLength];
@@ -471,7 +471,7 @@ public class X4Activity extends Activity {
 						data[i] = NewArray[i] - 'A' + 10;
 					}
 				}
-				/* ½« Ã¿¸öcharµÄÖµÃ¿Á½¸ö×é³ÉÒ»¸ö16½øÖÆÊı¾İ */
+				/* å°† æ¯ä¸ªcharçš„å€¼æ¯ä¸¤ä¸ªç»„æˆä¸€ä¸ª16è¿›åˆ¶æ•°æ® */
 				byte[] byteArray = new byte[EvenLength / 2];
 				for (int i = 0; i < EvenLength / 2; i++) {
 					byteArray[i] = (byte) (data[i * 2] * 16 + data[i * 2 + 1]);
@@ -481,16 +481,16 @@ public class X4Activity extends Activity {
 		}
 		return new byte[] {};
 	}
-	
+
 	/**
-	 * ½«String×ª»¯Îªbyte[]Êı×é
+	 * å°†Stringè½¬åŒ–ä¸ºbyte[]æ•°ç»„
 	 * @param arg
-	 *            ĞèÒª×ª»»µÄString¶ÔÏó
-	 * @return ×ª»»ºóµÄbyte[]Êı×é
+	 *            éœ€è¦è½¬æ¢çš„Stringå¯¹è±¡
+	 * @return è½¬æ¢åçš„byte[]æ•°ç»„
 	 */
 	private byte[] toByteArray2(String arg) {
 		if (arg != null) {
-			/* 1.ÏÈÈ¥³ıStringÖĞµÄ' '£¬È»ºó½«String×ª»»ÎªcharÊı×é */
+			/* 1.å…ˆå»é™¤Stringä¸­çš„' 'ï¼Œç„¶åå°†Stringè½¬æ¢ä¸ºcharæ•°ç»„ */
 			char[] NewArray = new char[1000];
 			char[] array = arg.toCharArray();
 			int length = 0;
@@ -509,7 +509,7 @@ public class X4Activity extends Activity {
 				byteArray[i] = (byte)NewArray[i];
 			}
 			return byteArray;
-	
+
 		}
 		return new byte[] {};
 	}

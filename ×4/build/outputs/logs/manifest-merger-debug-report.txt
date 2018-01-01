@@ -4,6 +4,12 @@ ADDED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:2:1-42:12
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:2:1-42:12
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:2:1-42:12
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:2:1-42:12
+MERGED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-beta1.aar/fdb0642c1d4ab9900f435172a0d4c146/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-beta1.aar/f77bca43e1b553d46443b9f8eaa95449/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-beta1.aar/76fa0a4c08af9f5656bad196977e8767/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-beta1.aar/539cf3836fa7b26c8f80e31a2a9977de/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-beta1.aar/5ee64af2307266e95296988d1f4bccad/AndroidManifest.xml:17:1-31:12
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:2:1-42:12
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:2:1-42:12
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:2:1-42:12
@@ -29,8 +35,22 @@ uses-sdk
 ADDED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:7:5-9:41
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:7:5-9:41
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-beta1.aar/fdb0642c1d4ab9900f435172a0d4c146/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-beta1.aar/fdb0642c1d4ab9900f435172a0d4c146/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-beta1.aar/f77bca43e1b553d46443b9f8eaa95449/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-beta1.aar/f77bca43e1b553d46443b9f8eaa95449/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-beta1.aar/76fa0a4c08af9f5656bad196977e8767/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-beta1.aar/76fa0a4c08af9f5656bad196977e8767/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-beta1.aar/539cf3836fa7b26c8f80e31a2a9977de/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-beta1.aar/539cf3836fa7b26c8f80e31a2a9977de/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-beta1.aar/5ee64af2307266e95296988d1f4bccad/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-beta1.aar/5ee64af2307266e95296988d1f4bccad/AndroidManifest.xml:21:5-23:58
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:7:5-9:41
 INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:7:5-9:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		ADDED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:9:9-38
 		INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml
@@ -41,6 +61,18 @@ INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:7:5-9:
 		INJECTED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml
 application
 ADDED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:11:5-40:19
+MERGED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-beta1.aar/fdb0642c1d4ab9900f435172a0d4c146/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-beta1.aar/fdb0642c1d4ab9900f435172a0d4c146/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-beta1.aar/f77bca43e1b553d46443b9f8eaa95449/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-beta1.aar/f77bca43e1b553d46443b9f8eaa95449/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-beta1.aar/76fa0a4c08af9f5656bad196977e8767/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-beta1.aar/76fa0a4c08af9f5656bad196977e8767/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-beta1.aar/539cf3836fa7b26c8f80e31a2a9977de/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-beta1.aar/539cf3836fa7b26c8f80e31a2a9977de/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-beta1.aar/5ee64af2307266e95296988d1f4bccad/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-beta1.aar/5ee64af2307266e95296988d1f4bccad/AndroidManifest.xml:25:5-29:19
 	android:label
 		ADDED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:14:9-41
 	android:icon
@@ -91,3 +123,19 @@ ADDED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:36:13-37:
 		ADDED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:37:17-54
 	android:name
 		ADDED from /Users/xiaomochn/File/Home/×4/src/main/AndroidManifest.xml:36:24-86
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-media-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-beta1.aar/fdb0642c1d4ab9900f435172a0d4c146/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-media-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-beta1.aar/fdb0642c1d4ab9900f435172a0d4c146/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-fragment:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-beta1.aar/f77bca43e1b553d46443b9f8eaa95449/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-fragment:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-beta1.aar/f77bca43e1b553d46443b9f8eaa95449/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-core-utils:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-beta1.aar/76fa0a4c08af9f5656bad196977e8767/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-core-utils:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-beta1.aar/76fa0a4c08af9f5656bad196977e8767/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-core-ui:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-beta1.aar/539cf3836fa7b26c8f80e31a2a9977de/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-core-ui:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-beta1.aar/539cf3836fa7b26c8f80e31a2a9977de/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-beta1.aar/5ee64af2307266e95296988d1f4bccad/AndroidManifest.xml:26:9-28:44
+MERGED from [com.android.support:support-compat:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-beta1.aar/5ee64af2307266e95296988d1f4bccad/AndroidManifest.xml:26:9-28:44
+	android:value
+		ADDED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:28:13-41
+	android:name
+		ADDED from [com.android.support:support-v4:26.0.0-beta1] /Users/xiaomochn/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-beta1.aar/446873b5182b0a6665aa4e624155e1dd/AndroidManifest.xml:27:13-51

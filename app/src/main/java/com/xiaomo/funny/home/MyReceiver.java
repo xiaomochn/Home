@@ -38,24 +38,6 @@ public class MyReceiver extends BroadcastReceiver {
 				String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
 				Logger.d(TAG, "[MyReceiver] 接收Registration Id : " + regId);
 				//send the Registration Id to your server...
-
-			} else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
-				Logger.d(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
-				final String str = bundle.getString(JPushInterface.EXTRA_MESSAGE);
-				processCustomMessage(context, bundle);
-
-
-				byte[] to_send =str.getBytes();
-				new Handler(Looper.getMainLooper()).post(new Runnable() {
-					@Override
-					public void run() {
-						Toast.makeText(context,str,Toast.LENGTH_LONG).show();
-					}
-				});
-//				byte[] to_send = toByteArray2(writeText.getText().toString());
-				int retval = MyApp.driver.WriteData(to_send, to_send.length);//写数据，第一个参数为需要发送的字节数组，第二个参数为需要发送的字节长度，返回实际发送的字节长度
-				if (retval < 0)
-					Toast.makeText(context, "写失败!",
 							Toast.LENGTH_SHORT).show();
 			} else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
 				Logger.d(TAG, "[MyReceiver] 接收到推送下来的通知");
