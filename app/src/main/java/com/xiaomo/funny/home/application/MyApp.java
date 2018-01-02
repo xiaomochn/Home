@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 
 import com.hwangjr.rxbus.Bus;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
+import com.xiaomo.funny.home.service.Xserves;
 
 import cn.wch.ch34xuartdriver.CH34xUARTDriver;
 
@@ -28,7 +31,8 @@ public class MyApp extends Application {
 	public void onCreate() {
 		super.onCreate();
 		context = this;
-
+//		Xserves.startService(this);
+		Logger.addLogAdapter(new AndroidLogAdapter());
 	}
 
 	@Override

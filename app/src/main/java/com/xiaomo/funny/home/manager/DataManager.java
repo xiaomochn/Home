@@ -126,7 +126,7 @@ public class DataManager {
 			return null;
 		}
 		Log.i(TAG, "getUser  userId = " + userId);
-		return JSON.parseObject(sdf.getString(StringUtil.getTrimedString(userId), null), User.class);
+		return null;
 	}
 
 

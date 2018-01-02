@@ -1,17 +1,32 @@
-package com.xiaomo.funny.home
+package com.xiaomo.funny.home.v
 
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import cn.jpush.android.api.JPushInterface
 import cn.jpush.android.data.JPushLocalNotification
 import com.code19.library.DeviceUtils
+import com.xiaomo.funny.home.Logger
+import com.xiaomo.funny.home.R
+import com.xiaomo.funny.home.X4Activity
+import com.xiaomo.funny.home.p.ContionPres
+import com.xiaomo.funny.home.service.Xserves
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IContionView {
+    override fun getStatusTextView(): TextView {
+        return message
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
+    var mContionPres: ContionPres? = null;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,7 +40,10 @@ class MainActivity : AppCompatActivity() {
 
         text.text = appId + " regis: " + registrationID
         text.setOnClickListener({ fffff() })
-        topPanel.setOnClickListener({startActivity(Intent(this, X4Activity::class.java))})
+        Xserves.startService(applicationContext)
+        mContionPres = ContionPres(this)
+        topPanel.setOnClickListener({ startActivity(Intent(this,X4Activity::class.java)) })
+
     }
 
     fun fffff() {
@@ -34,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         ln.content = "hhh"
         ln.title = "ln"
         ln.notificationId = 11111111
-        ln.broadcastTime = System.currentTimeMillis() +  100
+        ln.broadcastTime = System.currentTimeMillis() + 100
 
         val map = HashMap<String, Any>()
         map.put("name", "jpush")
@@ -42,5 +60,10 @@ class MainActivity : AppCompatActivity() {
         val json = JSONObject(map)
         ln.extras = json.toString()
         JPushInterface.addLocalNotification(applicationContext, ln)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mContionPres?.onDestory()
     }
 }
