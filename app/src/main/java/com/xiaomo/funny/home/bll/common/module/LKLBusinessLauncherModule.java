@@ -19,6 +19,8 @@ import com.xiaomo.funny.home.weex.extend.WXActivity;
 
 import java.util.ArrayList;
 
+import io.reactivex.Observable;
+
 /**
  * Created by zangrui on 2016/12/23.
  */
@@ -108,6 +110,9 @@ public class LKLBusinessLauncherModule extends WXModule {
     @JSMethod
     public void addUser(String userId, String userNickname, int userWeight) {
         Log.d("addUser", "addUser: " + userNickname);
+        if (userId == null) {
+            return;
+        }
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mWXSDKInstance.getContext());
         ArrayList<UserModel> list = null;
         try {
@@ -119,8 +124,19 @@ public class LKLBusinessLauncherModule extends WXModule {
         if (list == null) {
             list = new ArrayList<>();
         }
-        list.add(new UserModel(userId, userNickname, userWeight));
-        sp.edit().putString("userlist", new Gson().toJson(list));
+        UserModel newUser = new UserModel(userId, userNickname, userWeight);
+
+        boolean haveUser = false;
+        for (UserModel userModel : list) {
+            if (userId.equals(userModel.getUserId())) {
+                haveUser = true;
+                break;
+            }
+        }
+        if (!haveUser) {
+            list.add(newUser);
+        }
+        sp.edit().putString("userlist", new Gson().toJson(list)).commit();
     }
 
     @JSMethod
@@ -139,23 +155,13 @@ public class LKLBusinessLauncherModule extends WXModule {
             e.printStackTrace();
         }
         if (list != null)
-            sp.edit().putString("userlist", new Gson().toJson(list));
+            sp.edit().putString("userlist", new Gson().toJson(list)).commit();
     }
 
     @JSMethod
-    public String getUserList() {
+    public void getUserList(JSCallback callbackId) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mWXSDKInstance.getContext());
-        ArrayList<UserModel> list = null;
-        try {
-            list = new Gson().fromJson(sp.getString("userlist", ""), new TypeToken<ArrayList<UserModel>>() {
-            }.getType());
-
-        } catch (JsonSyntaxException e) {
-            e.printStackTrace();
-        }
-        if (list != null)
-            return new Gson().toJson(list);
-        else return "";
+        callbackId.invoke(sp.getString("userlist", ""));
     }
 
 }
