@@ -16,6 +16,7 @@ import com.xiaomo.funny.home.R
 import com.xiaomo.funny.home.X4Activity
 import com.xiaomo.funny.home.p.ContionPres
 import com.xiaomo.funny.home.service.Xserves
+import com.xiaomo.funny.home.weex.extend.WXActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.util.*
@@ -42,7 +43,8 @@ class MainActivity : AppCompatActivity(), IContionView {
         text.setOnClickListener({ fffff() })
         Xserves.startService(applicationContext)
         mContionPres = ContionPres(this)
-        topPanel.setOnClickListener({ startActivity(Intent(this,X4Activity::class.java)) })
+        topPanel.setOnClickListener({ startActivity(Intent(this, X4Activity::class.java)) })
+        topPanel3.setOnClickListener({ startActivity(Intent(this, WXActivity::class.java)) })
 
     }
 

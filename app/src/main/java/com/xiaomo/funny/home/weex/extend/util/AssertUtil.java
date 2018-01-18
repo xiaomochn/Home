@@ -202,7 +202,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package com.lakala.platform.weex.extend.util;
+package com.xiaomo.funny.home.weex.extend.util;
 
 /**
  * Created by sospartan on 5/31/16.

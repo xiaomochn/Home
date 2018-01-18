@@ -1,4 +1,4 @@
-package com.lakala.platform.weex.extend.adapter;
+package com.xiaomo.funny.home.weex.extend.adapter;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;

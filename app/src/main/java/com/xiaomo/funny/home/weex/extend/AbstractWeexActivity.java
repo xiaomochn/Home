@@ -202,7 +202,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package com.lakala.platform.weex.extend;
+package com.xiaomo.funny.home.weex.extend;
 
 import android.content.Intent;
 import android.graphics.Rect;
@@ -210,17 +210,15 @@ import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lakala.platform.activity.BaseActivity;
-import com.lakala.platform.weex.extend.util.AssertUtil;
-import com.lakala.platform.weex.extend.util.ScreenUtil;
-import com.lakala.ui.component.NavigationBar;
 import com.taobao.weex.IWXRenderListener;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.common.WXRenderStrategy;
+import com.xiaomo.funny.home.weex.extend.util.ScreenUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -228,7 +226,7 @@ import java.util.Map;
 /**
  * Created by sospartan on 5/30/16.
  */
-public abstract class AbstractWeexActivity extends BaseActivity implements IWXRenderListener {
+public abstract class AbstractWeexActivity extends AppCompatActivity implements IWXRenderListener {
 
   private static final String TAG = "AbstractWeexActivity";
 
@@ -237,15 +235,6 @@ public abstract class AbstractWeexActivity extends BaseActivity implements IWXRe
 
   protected WXAnalyzerDelegate mWxAnalyzerDelegate;
 
-
-  public NavigationBar getNavigationBar(){
-    return navigationBar;
-  }
-
-  @Override
-  protected boolean isRequired2Login() {
-    return false;
-  }
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -295,7 +284,7 @@ public abstract class AbstractWeexActivity extends BaseActivity implements IWXRe
   }
 
   protected void renderPage(String template,String source,String jsonInitData){
-    AssertUtil.throwIfNull(mContainer,new RuntimeException("Can't render page, container is null"));
+
     Map<String, Object> options = new HashMap<>();
     options.put(WXSDKInstance.BUNDLE_URL, source);
     mInstance.render(
@@ -313,7 +302,6 @@ public abstract class AbstractWeexActivity extends BaseActivity implements IWXRe
   }
 
   protected void renderPageByURL(String url,String jsonInitData){
-    AssertUtil.throwIfNull(mContainer,new RuntimeException("Can't render page, container is null"));
     Map<String, Object> options = new HashMap<>();
     options.put(WXSDKInstance.BUNDLE_URL, url);
     mInstance.renderByUrl(

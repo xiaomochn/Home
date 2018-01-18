@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.xiaomo.funny.home.application.MyApp;
+import com.xiaomo.funny.home.weex.extend.WXActivity;
 
 import cn.wch.ch34xuartdriver.CH34xUARTDriver;
 
@@ -100,6 +102,7 @@ public class X4Activity extends Activity {
 		configButton.setEnabled(false);
 		writeButton.setEnabled(false);
 //		activity = this;
+
 
 		//打开流程主要步骤为ResumeUsbList，UartInit
 		openButton.setOnClickListener(new View.OnClickListener() {
@@ -286,6 +289,12 @@ public class X4Activity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				readText.setText("");
+			}
+		});
+		findViewById(R.id.toweex).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(X4Activity.this,WXActivity.class));
 			}
 		});
 		return;

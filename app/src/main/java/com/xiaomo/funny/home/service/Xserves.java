@@ -72,20 +72,20 @@ public class Xserves extends Service {
         MyApp.getBus().post(new ContionPModel("onCreate"));
         if (!MyApp.driver.UsbFeatureSupported())// 判断系统是否支持USB HOST
         {
-            Dialog dialog = new AlertDialog.Builder(Xserves.this)
-                    .setTitle("提示")
-                    .setMessage("您的手机不支持USB HOST，请更换其他手机再试！")
-                    .setPositiveButton("确认",
-                            new DialogInterface.OnClickListener() {
-
-                                @Override
-                                public void onClick(DialogInterface arg0,
-                                                    int arg1) {
-                                    System.exit(0);
-                                }
-                            }).create();
-            dialog.setCanceledOnTouchOutside(false);
-            dialog.show();
+//            Dialog dialog = new AlertDialog.Builder(Xserves.this)
+//                    .setTitle("提示")
+//                    .setMessage("您的手机不支持USB HOST，请更换其他手机再试！")
+//                    .setPositiveButton("确认",
+//                            new DialogInterface.OnClickListener() {
+//
+//                                @Override
+//                                public void onClick(DialogInterface arg0,
+//                                                    int arg1) {
+//                                    System.exit(0);
+//                                }
+//                            }).create();
+//            dialog.setCanceledOnTouchOutside(false);
+//            dialog.show();
         } else {
 
             if (!isOpen) {
@@ -121,7 +121,9 @@ public class Xserves extends Service {
                                         .subscribe(new Consumer<String>() {
                                             @Override
                                             public void accept(String s) throws Exception {
+
                                                 MyApp.getBus().post(new ContionPModel("write"));
+
                                             }
                                         });
                                 try {

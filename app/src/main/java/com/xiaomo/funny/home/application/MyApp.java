@@ -3,10 +3,17 @@ package com.xiaomo.funny.home.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hwangjr.rxbus.Bus;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.taobao.weex.InitConfig;
+import com.taobao.weex.WXSDKEngine;
+import com.taobao.weex.common.WXException;
+import com.xiaomo.funny.home.bll.common.module.DialogModule;
+import com.xiaomo.funny.home.bll.common.module.LKLBusinessLauncherModule;
 import com.xiaomo.funny.home.service.Xserves;
+import com.xiaomo.funny.home.weex.extend.adapter.FrescoImageAdapter;
 
 import cn.wch.ch34xuartdriver.CH34xUARTDriver;
 
@@ -33,7 +40,16 @@ public class MyApp extends Application {
 		context = this;
 //		Xserves.startService(this);
 		Logger.addLogAdapter(new AndroidLogAdapter());
-	}
+		InitConfig config=new InitConfig.Builder().setImgAdapter(new FrescoImageAdapter()).build();
+		WXSDKEngine.initialize(this,config);
+		Fresco.initialize(this);
+        try {
+            WXSDKEngine.registerModule("businessLauncher", LKLBusinessLauncherModule.class);
+            WXSDKEngine.registerModule("dialog", DialogModule.class);
+        } catch (WXException e) {
+            e.printStackTrace();
+        }
+    }
 
 	@Override
 	protected void attachBaseContext(Context base) {

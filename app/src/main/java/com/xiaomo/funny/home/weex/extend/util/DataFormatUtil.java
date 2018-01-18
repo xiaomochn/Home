@@ -1,4 +1,4 @@
-package com.lakala.platform.weex.extend.util;
+package com.xiaomo.funny.home.weex.extend.util;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -202,11 +202,12 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package com.lakala.platform.weex.extend.adapter;
+package com.xiaomo.funny.home.weex.extend.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.ImageView;
+
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.dom.WXDomObject;
 import com.taobao.weex.ui.component.WXImage;

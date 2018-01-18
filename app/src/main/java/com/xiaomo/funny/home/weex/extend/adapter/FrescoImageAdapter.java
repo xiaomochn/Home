@@ -202,7 +202,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package com.lakala.platform.weex.extend.adapter;
+package com.xiaomo.funny.home.weex.extend.adapter;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -233,8 +233,6 @@ import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.lakala.foundation.util.ImageUtil;
-import com.lakala.platform.common.ApplicationEx;
 import com.taobao.weex.WXSDKManager;
 import com.taobao.weex.adapter.IWXImgLoaderAdapter;
 import com.taobao.weex.common.WXImageStrategy;
@@ -374,23 +372,23 @@ public class FrescoImageAdapter implements IWXImgLoaderAdapter {
             return false;
         }
 
-        if (url.startsWith("file://assets/")){
-            String relatePath = url.substring(url.indexOf("//") + 9);
-            Bitmap bitmap = ImageUtil.getBitmapInAssets(ApplicationEx.getInstance(),relatePath);
-            if (bitmap != null){
-                view.setImageBitmap(bitmap);
-            }
-
-            return true;
-        }
-
-        if (url.startsWith("/data/")){
-            Bitmap bitmap = ImageUtil.getBitmapByFile(url);
-            if (bitmap != null){
-                view.setImageBitmap(bitmap);
-            }
-            return true;
-        }
+//        if (url.startsWith("file://assets/")){
+//            String relatePath = url.substring(url.indexOf("//") + 9);
+//            Bitmap bitmap = ImageUtil.getBitmapInAssets(ApplicationEx.getInstance(),relatePath);
+//            if (bitmap != null){
+//                view.setImageBitmap(bitmap);
+//            }
+//
+//            return true;
+//        }
+//
+//        if (url.startsWith("/data/")){
+//            Bitmap bitmap = ImageUtil.getBitmapByFile(url);
+//            if (bitmap != null){
+//                view.setImageBitmap(bitmap);
+//            }
+//            return true;
+//        }
 
         return false;
     }
