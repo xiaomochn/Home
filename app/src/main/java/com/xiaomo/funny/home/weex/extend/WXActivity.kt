@@ -3,10 +3,15 @@ package com.xiaomo.funny.home.weex.extend
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.hwangjr.rxbus.annotation.Subscribe
+import com.hwangjr.rxbus.thread.EventThread
 import com.taobao.weex.IWXRenderListener
 import com.taobao.weex.WXSDKInstance
 import com.taobao.weex.common.WXRenderStrategy
 import com.xiaomo.funny.home.R
+import com.xiaomo.funny.home.application.MyApp
+import com.xiaomo.funny.home.model.ContionPModel
+import com.xiaomo.funny.home.model.UserModel
 import com.xiaomo.funny.home.weex.extend.util.ScreenUtil
 import java.util.*
 
@@ -60,19 +65,20 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
             if (path == null) {
                 path = "index"
             } else {
-                Thread(Runnable {
-                    var i = 0;
-                    while (true) {
-                        val params = HashMap<String, Any>()
-                        params.put("userNickname", i++)
-                        params.put("userId", "id" + i)
-                        mWXSDKInstance?.fireGlobalEventCallback("onnewuser", params)
-                        Thread.sleep(1000)
-                    }
-
-                }).start()
+//                Thread(Runnable {
+//                    var i = 0;
+//                    while (true) {
+//                        val params = HashMap<String, Any>()
+//                        params.put("userNickname", i++)
+//                        params.put("userId", "id" + i)
+//                        mWXSDKInstance?.fireGlobalEventCallback("onnewuser", params)
+//                        Thread.sleep(1000)
+//                    }
+//
+//                }).start()
             }
-            val url = host + "dist/" + path + ".js"
+//            val url = host + "dist/" + path + ".js"
+            val url = "file://assets/dist/" + path + ".js"
             renderPageByURL(url, null)
         }
 //        mWXSDKInstance!!.render("WXSample", WXFileUtils.loadFileContent("hello.js", this), null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC)
@@ -104,6 +110,7 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         if (mWXSDKInstance != null) {
             mWXSDKInstance!!.onActivityResume()
         }
+        MyApp.getBus().register(this)
     }
 
     override fun onPause() {
@@ -111,6 +118,7 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         if (mWXSDKInstance != null) {
             mWXSDKInstance!!.onActivityPause()
         }
+        MyApp.getBus().unregister(this)
     }
 
     override fun onStop() {
@@ -125,5 +133,14 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         if (mWXSDKInstance != null) {
             mWXSDKInstance!!.onActivityDestroy()
         }
+    }
+
+    @Subscribe(thread = EventThread.MAIN_THREAD)
+    fun onNewUserEvent(userModel: UserModel) {
+        val params = HashMap<String, Any>()
+        params.put("userNickname", userModel.userNickname)
+        params.put("userId", userModel.userId)
+        mWXSDKInstance?.fireGlobalEventCallback("onnewuser", params)
+
     }
 }
