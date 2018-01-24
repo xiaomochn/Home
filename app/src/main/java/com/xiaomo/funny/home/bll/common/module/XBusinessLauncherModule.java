@@ -7,25 +7,24 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.code19.library.DeviceUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
-import com.xiaomo.funny.home.bll.common.LakalaConstant;
+import com.xiaomo.funny.home.bll.common.XConstant;
 import com.xiaomo.funny.home.model.UserModel;
 import com.xiaomo.funny.home.weex.extend.WXActivity;
 
 import java.util.ArrayList;
 
-import io.reactivex.Observable;
-
 /**
  * Created by zangrui on 2016/12/23.
  */
 
-public class LKLBusinessLauncherModule extends WXModule {
+public class XBusinessLauncherModule extends WXModule {
     /**
      * 得到result返回的数据key
      */
@@ -58,7 +57,7 @@ public class LKLBusinessLauncherModule extends WXModule {
 //
 ////                Intent temp = new Intent(_this, WeexActivity.class);
 ////                String action = "weex:login.login";
-////                temp.putExtra(LakalaConstant.BUSINESS_TYPE_KEY, action);
+////                temp.putExtra(XConstant.BUSINESS_TYPE_KEY, action);
 ////                _this.startActivity(temp);
 //
 //                Intent temp = new Intent(_this, LoginActivity.class);
@@ -71,14 +70,14 @@ public class LKLBusinessLauncherModule extends WXModule {
 //
 //                Intent authIntent = new Intent(_this, WeexActivity.class);
 //                String action = "weex:faceRecognition.idAuthorization";
-//                authIntent.putExtra(LakalaConstant.BUSINESS_TYPE_KEY,action);
+//                authIntent.putExtra(XConstant.BUSINESS_TYPE_KEY,action);
 //                _this.startActivity(authIntent);
 //
 //            }else {
 //
 //                Intent intent = new Intent(_this, WeexActivity.class);
 //                String action = "weex:" + url;
-//                intent.putExtra(LakalaConstant.BUSINESS_TYPE_KEY,action);
+//                intent.putExtra(XConstant.BUSINESS_TYPE_KEY,action);
 //
 //                _this.startActivity(intent);
 //
@@ -92,19 +91,51 @@ public class LKLBusinessLauncherModule extends WXModule {
         Intent intent = new Intent(_this, WXActivity.class);
         String action = "weex:" + url;
         intent.putExtra("url", url);
-        intent.putExtra(LakalaConstant.BUSINESS_TYPE_KEY, action);
-//        intent.putExtra(LakalaConstant.BUSINESS_BUNDLE_KEY, bundle);
+        intent.putExtra(XConstant.BUSINESS_TYPE_KEY, action);
+//        intent.putExtra(XConstant.BUSINESS_BUNDLE_KEY, bundle);
 
 //        /**
 //         *  false 为蓝色  true为白色
 //         */
 //        if("true".equals(isChangeNavImage)){
-//            intent.putExtra(LakalaConstant.BUSINESS_NAV_BAR, true);
+//            intent.putExtra(XConstant.BUSINESS_NAV_BAR, true);
 //        }else{
-//            intent.putExtra(LakalaConstant.BUSINESS_NAV_BAR, false);
+//            intent.putExtra(XConstant.BUSINESS_NAV_BAR, false);
 //        }
         _this.startActivity(intent);
 
+    }
+
+
+    @JSMethod
+    public void getString(JSCallback callbackId, String k, String fileName) {
+        if (fileName == null) fileName = "default";
+        if (callbackId != null) {
+            callbackId.invoke(getString(mWXSDKInstance.getContext(), k, fileName));
+        }
+
+    }
+
+
+    public static String getString(Context context, String k, String fileName) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        return sp.getString(k, "");
+    }
+
+    @JSMethod
+    public void setString(String k, String v) {
+        setString(k, "default");
+    }
+
+    @JSMethod
+    public void setString(String k, String v, String fileName) {
+        setString(getCurrentActivity().getApplicationContext(), k, v, fileName);
+    }
+
+    public static void setString(Context context, String k, String v, String fileName) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        sp.edit().putString(k, v).commit();
+        return;
     }
 
     @JSMethod
@@ -163,5 +194,18 @@ public class LKLBusinessLauncherModule extends WXModule {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mWXSDKInstance.getContext());
         callbackId.invoke(sp.getString("userlist", ""));
     }
+
+    @JSMethod
+    public void getDeviceId(JSCallback callbackId) {
+        callbackId.invoke(DeviceUtils.getAndroidID(mWXSDKInstance.getContext()));
+
+    }
+
+    @JSMethod
+    public void getDeviceName(JSCallback callbackId) {
+        callbackId.invoke(DeviceUtils.getDevice());
+
+    }
+
 
 }

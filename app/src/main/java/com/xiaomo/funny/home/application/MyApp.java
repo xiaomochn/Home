@@ -11,8 +11,7 @@ import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.common.WXException;
 import com.xiaomo.funny.home.bll.common.module.DialogModule;
-import com.xiaomo.funny.home.bll.common.module.LKLBusinessLauncherModule;
-import com.xiaomo.funny.home.service.Xserves;
+import com.xiaomo.funny.home.bll.common.module.XBusinessLauncherModule;
 import com.xiaomo.funny.home.weex.extend.adapter.FrescoImageAdapter;
 
 import cn.wch.ch34xuartdriver.CH34xUARTDriver;
@@ -44,7 +43,7 @@ public class MyApp extends Application {
 		WXSDKEngine.initialize(this,config);
 		Fresco.initialize(this);
         try {
-            WXSDKEngine.registerModule("businessLauncher", LKLBusinessLauncherModule.class);
+            WXSDKEngine.registerModule("businessLauncher", XBusinessLauncherModule.class);
             WXSDKEngine.registerModule("dialog", DialogModule.class);
         } catch (WXException e) {
             e.printStackTrace();

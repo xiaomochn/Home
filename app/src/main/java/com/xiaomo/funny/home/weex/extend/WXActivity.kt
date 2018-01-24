@@ -60,7 +60,7 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         } else {
             //远程路径
             var path = intent?.extras?.getString("url")
-            val host = "http://10.5.6.143:8081/"
+            val host = "http://10.5.7.186:8081/"
 //            val url = host + "dist/index.js"
             if (path == null) {
                 path = "index"
@@ -77,8 +77,8 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
 //
 //                }).start()
             }
-//            val url = host + "dist/" + path + ".js"
-            val url = "file://assets/dist/" + path + ".js"
+            val url = host + "dist/" + path + ".js"
+//            val url = "file://assets/dist/" + path + ".js"
             renderPageByURL(url, null)
         }
 //        mWXSDKInstance!!.render("WXSample", WXFileUtils.loadFileContent("hello.js", this), null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC)

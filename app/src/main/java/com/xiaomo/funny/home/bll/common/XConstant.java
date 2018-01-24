@@ -5,7 +5,7 @@ package com.xiaomo.funny.home.bll.common;
  * 定义一些常量字段
  * Created by andy_lv on 14-2-24.
  */
-public class LakalaConstant {
+public class XConstant {
 
     /**
      * 太平洋保险基地址
