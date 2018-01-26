@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xiaomo.funny.home">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
         android:name=".application.MyApp"
         android:allowBackup="true"
@@ -38,7 +43,17 @@
             android:screenOrientation="landscape"></activity>
 
         <service android:name=".service.Xserves"></service>
-
+        <!-- 实时通信模块、推送（均需要加入以下声明） START -->
+        <!-- 实时通信模块、推送都要使用 PushService -->
+        <service android:name="com.avos.avoscloud.PushService"/>
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <!-- 实时通信模块、推送 END -->
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"

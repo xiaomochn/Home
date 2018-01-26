@@ -48,5 +48,7 @@ dependencies {
     implementation 'com.taobao.android:weex_sdk:0.17.0@aar'
     implementation 'com.facebook.fresco:fresco:0.12.0+'
     implementation 'com.facebook.fresco:animated-gif:0.12.0'
+    implementation ('cn.leancloud.android:avoscloud-sdk:v4.6.1')
+    implementation ('cn.leancloud.android:avoscloud-push:v4.6.1@aar'){transitive = true}
 
 }

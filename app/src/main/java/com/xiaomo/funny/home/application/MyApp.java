@@ -3,6 +3,7 @@ package com.xiaomo.funny.home.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hwangjr.rxbus.Bus;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -48,6 +49,8 @@ public class MyApp extends Application {
         } catch (WXException e) {
             e.printStackTrace();
         }
+		AVOSCloud.initialize(this,"NPPHU9xCMP2IRkkACQNOjt7f-gzGzoHsz","0PC4OzV7L9vD7SnMbCxnNqSL");
+		AVOSCloud.setDebugLogEnabled(true);
     }
 
 	@Override

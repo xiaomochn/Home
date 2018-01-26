@@ -7,6 +7,16 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.SaveCallback;
+import com.avos.avoscloud.im.v2.AVIMClient;
+import com.avos.avoscloud.im.v2.AVIMConversation;
+import com.avos.avoscloud.im.v2.AVIMException;
+import com.avos.avoscloud.im.v2.callback.AVIMClientCallback;
+import com.avos.avoscloud.im.v2.callback.AVIMConversationCallback;
+import com.avos.avoscloud.im.v2.callback.AVIMConversationCreatedCallback;
+import com.avos.avoscloud.im.v2.messages.AVIMTextMessage;
 import com.code19.library.DeviceUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -19,6 +29,7 @@ import com.xiaomo.funny.home.model.UserModel;
 import com.xiaomo.funny.home.weex.extend.WXActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by zangrui on 2016/12/23.
@@ -205,6 +216,57 @@ public class XBusinessLauncherModule extends WXModule {
     public void getDeviceName(JSCallback callbackId) {
         callbackId.invoke(DeviceUtils.getDevice());
 
+    }
+
+    @JSMethod
+    public void sendMessageToid(String uid, String message) {
+        sendMessageToJerryFromTom(uid, message);
+        // 测试网络代码
+//        AVObject testObject = new AVObject("TestObject");
+//        testObject.put("words","Hello World!");
+//        testObject.saveInBackground(new SaveCallback() {
+//            @Override
+//            public void done(AVException e) {
+//                if(e == null){
+//                    Log.d("saved","success!");
+//                }
+//            }
+//        });
+    }
+
+    public void sendMessageToJerryFromTom(final String uid, final String message) {
+        // Tom 用自己的名字作为clientId，获取AVIMClient对象实例
+        AVIMClient tom = AVIMClient.getInstance("Tom");
+        // 与服务器连接
+        tom.open(new AVIMClientCallback() {
+            @Override
+            public void done(AVIMClient client, AVIMException e) {
+                if (e == null) {
+                    // 创建与Jerry之间的对话
+                    client.createConversation(Arrays.asList(uid), uid, null,
+                            new AVIMConversationCreatedCallback() {
+
+                                @Override
+                                public void done(AVIMConversation conversation, AVIMException e) {
+                                    if (e == null) {
+                                        AVIMTextMessage msg = new AVIMTextMessage();
+                                        msg.setText(message);
+                                        // 发送消息
+                                        conversation.sendMessage(msg, new AVIMConversationCallback() {
+
+                                            @Override
+                                            public void done(AVIMException e) {
+                                                if (e == null) {
+                                                    Log.d("Tom & Jerry", "发送成功！");
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                }
+            }
+        });
     }
 
 
