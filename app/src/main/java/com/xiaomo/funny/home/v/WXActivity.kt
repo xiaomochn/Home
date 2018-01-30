@@ -1,8 +1,11 @@
-package com.xiaomo.funny.home.weex.extend
+package com.xiaomo.funny.home.v
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.view.WindowManager
 import com.hwangjr.rxbus.annotation.Subscribe
 import com.hwangjr.rxbus.thread.EventThread
 import com.taobao.weex.IWXRenderListener
@@ -10,16 +13,17 @@ import com.taobao.weex.WXSDKInstance
 import com.taobao.weex.common.WXRenderStrategy
 import com.xiaomo.funny.home.R
 import com.xiaomo.funny.home.application.MyApp
-import com.xiaomo.funny.home.model.ContionPModel
 import com.xiaomo.funny.home.model.UserModel
 import com.xiaomo.funny.home.weex.extend.util.ScreenUtil
 import java.util.*
+
 
 class WXActivity : AppCompatActivity(), IWXRenderListener {
     internal var mWXSDKInstance: WXSDKInstance? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wx)
+//        setStatusBar()
         mWXSDKInstance = WXSDKInstance(this)
         mWXSDKInstance!!.registerRenderListener(this)
         /**
@@ -60,10 +64,10 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         } else {
             //远程路径
             var path = intent?.extras?.getString("url")
-            val host = "http://10.5.7.186:8081/"
+            val host = "http://10.5.6.7:8081/"
 //            val url = host + "dist/index.js"
             if (path == null) {
-                path = "index"
+                path = "module/home"
             } else {
 //                Thread(Runnable {
 //                    var i = 0;
@@ -143,4 +147,31 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         mWXSDKInstance?.fireGlobalEventCallback("onnewuser", params)
 
     }
+//
+//    protected var useThemestatusBarColor = false//是否使用特殊的标题栏背景颜色，android5.0以上可以设置状态栏背景色，如果不使用则使用透明色值
+//    protected var useStatusBarColor = true//是否使用状态栏文字和图标为暗色，如果状态栏采用了白色系，则需要使状态栏和图标为暗色，android6.0以上可以设置
+//
+//    protected fun setStatusBar() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0及以上
+//            val decorView = window.decorView
+//            val option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//            decorView.systemUiVisibility = option
+//            //根据上面设置是否对状态栏单独设置颜色
+//            if (useThemestatusBarColor) {
+//                window.statusBarColor = resources.getColor(R.color.textColorPrimary)
+//            } else {
+//                window.statusBarColor = Color.TRANSPARENT
+//            }
+//
+////            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+//            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {//4.4到5.0
+//            val localLayoutParams = window.attributes
+//            localLayoutParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
+//        }
+//        if ( useStatusBarColor) {//android6.0以后可以对状态栏文字颜色和图标进行修改
+//            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+//        }
+//    }
+
 }

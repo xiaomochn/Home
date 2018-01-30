@@ -1,11 +1,7 @@
 package com.xiaomo.funny.home.v
 
-import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
-import android.content.ServiceConnection
 import android.os.Bundle
-import android.os.IBinder
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import cn.jpush.android.api.JPushInterface
@@ -13,10 +9,8 @@ import cn.jpush.android.data.JPushLocalNotification
 import com.code19.library.DeviceUtils
 import com.xiaomo.funny.home.Logger
 import com.xiaomo.funny.home.R
-import com.xiaomo.funny.home.X4Activity
 import com.xiaomo.funny.home.p.ContionPres
 import com.xiaomo.funny.home.service.Xserves
-import com.xiaomo.funny.home.weex.extend.WXActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.util.*

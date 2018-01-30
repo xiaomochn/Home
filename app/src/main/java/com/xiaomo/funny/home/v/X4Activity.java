@@ -1,4 +1,4 @@
-package com.xiaomo.funny.home;
+package com.xiaomo.funny.home.v;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,8 +21,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.xiaomo.funny.home.R;
 import com.xiaomo.funny.home.application.MyApp;
-import com.xiaomo.funny.home.weex.extend.WXActivity;
 
 import cn.wch.ch34xuartdriver.CH34xUARTDriver;
 

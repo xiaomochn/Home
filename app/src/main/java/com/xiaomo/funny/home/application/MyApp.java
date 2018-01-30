@@ -2,6 +2,7 @@ package com.xiaomo.funny.home.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -38,6 +39,7 @@ public class MyApp extends Application {
 	public void onCreate() {
 		super.onCreate();
 		context = this;
+		MultiDex.install(this);
 //		Xserves.startService(this);
 		Logger.addLogAdapter(new AndroidLogAdapter());
 		InitConfig config=new InitConfig.Builder().setImgAdapter(new FrescoImageAdapter()).build();

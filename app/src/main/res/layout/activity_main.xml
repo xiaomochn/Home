@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
-        android:text="132413241234"
+        android:text="这里会显示 otg收到的数据,下边那一串是微信用户id"
         app:layout_constraintTop_toTopOf="parent"
      />
     <Button
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
 
         android:layout_height="wrap_content"
-        android:text="to3"
+        android:text="设置界面"
         tools:layout_editor_absoluteX="96dp"
         tools:layout_editor_absoluteY="0dp" />
 

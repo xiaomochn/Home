@@ -7,9 +7,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.SaveCallback;
 import com.avos.avoscloud.im.v2.AVIMClient;
 import com.avos.avoscloud.im.v2.AVIMConversation;
 import com.avos.avoscloud.im.v2.AVIMException;
@@ -26,7 +23,7 @@ import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
 import com.xiaomo.funny.home.bll.common.XConstant;
 import com.xiaomo.funny.home.model.UserModel;
-import com.xiaomo.funny.home.weex.extend.WXActivity;
+import com.xiaomo.funny.home.v.WXActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;

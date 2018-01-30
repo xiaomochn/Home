@@ -68,10 +68,8 @@ public class MyReceiver extends BroadcastReceiver {
                 if (haveUser(context, eventModel.getC())) {
                     byte[] to_send = eventModel.getE().getBytes();
                     int retval = MyApp.driver.WriteData(to_send, to_send.length);//写数据，第一个参数为需要发送的字节数组，第二个参数为需要发送的字节长度，返回实际发送的字节长度
-                    if (retval < 0)
-                        showToast("写失败", context);
-                    else
-                        showToast("写成功", context);
+                    if (retval < 0) showToast("写失败", context);
+                    else showToast("写成功", context);
                 } else {
                     showToast("...", context);
                     MyApp.getBus().post(new UserModel(eventModel.getC(), eventModel.getF(), 0));
@@ -103,7 +101,7 @@ public class MyReceiver extends BroadcastReceiver {
                 Logger.d(TAG, "[MyReceiver] Unhandled intent - " + intent.getAction());
             }
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
     }
@@ -133,6 +131,7 @@ public class MyReceiver extends BroadcastReceiver {
     public static boolean haveUser(Context context, String userId) {
         ArrayList<UserModel> list = getUserList(context);
         boolean haveUser = false;
+        if (list == null) return false;
         for (UserModel userModel : list) {
             if (userId.equals(userModel.getUserId())) {
                 haveUser = true;

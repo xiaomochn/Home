@@ -95,6 +95,12 @@ public class Xserves extends Service {
                     Toast.makeText(Xserves.this, "打开设备失败!",
                             Toast.LENGTH_SHORT).show();
                     MyApp.driver.CloseDevice();
+                    try {
+                        stopService(new Intent(this,Xserves.class));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                 } else if (retval == 0) {
                     if (!MyApp.driver.UartInit()) {//对串口设备进行初始化操作
                         Toast.makeText(Xserves.this, "设备初始化失败!",
