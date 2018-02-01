@@ -21,6 +21,7 @@ import com.google.gson.reflect.TypeToken;
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
+import com.xiaomo.funny.home.application.MyApp;
 import com.xiaomo.funny.home.bll.common.XConstant;
 import com.xiaomo.funny.home.model.UserModel;
 import com.xiaomo.funny.home.v.WXActivity;
@@ -33,16 +34,6 @@ import java.util.Arrays;
  */
 
 public class XBusinessLauncherModule extends WXModule {
-    /**
-     * 得到result返回的数据key
-     */
-    public static final String RESULT_DATA_KEY = "result_bundle";
-
-    /**
-     * 请求码
-     */
-    private int REQUEST_CODE = 90;
-    private JSCallback callbackId;
 
     private Activity getCurrentActivity() {
         Activity activity = null;
@@ -54,44 +45,6 @@ public class XBusinessLauncherModule extends WXModule {
         return activity;
     }
 
-//    @JSMethod
-//    public void openURL(String url, String isRequireLogin, String isRequireRealName){
-//        Activity _this = getCurrentActivity();
-//
-//        if (!TextUtils.isEmpty(url)){
-//
-//            //未登录，需要登录
-//            if ("true".equals(isRequireLogin) && !ApplicationEx.getInstance().getSession().isUserLogin()){
-//
-////                Intent temp = new Intent(_this, WeexActivity.class);
-////                String action = "weex:login.login";
-////                temp.putExtra(XConstant.BUSINESS_TYPE_KEY, action);
-////                _this.startActivity(temp);
-//
-//                Intent temp = new Intent(_this, LoginActivity.class);
-//                _this.startActivity(temp);
-//
-//            }else if("true".equals(isRequireRealName) && null != ApplicationEx.getInstance().getSession().getUser().getUserFlag() &&
-//                    !"".equals(ApplicationEx.getInstance().getSession().getUser().getUserFlag()) &&
-//                    !User.AUTH_PASS_USER_FLAG.equals(ApplicationEx.getInstance().getSession().getUser().getUserFlag())){
-//                //未实名通过
-//
-//                Intent authIntent = new Intent(_this, WeexActivity.class);
-//                String action = "weex:faceRecognition.idAuthorization";
-//                authIntent.putExtra(XConstant.BUSINESS_TYPE_KEY,action);
-//                _this.startActivity(authIntent);
-//
-//            }else {
-//
-//                Intent intent = new Intent(_this, WeexActivity.class);
-//                String action = "weex:" + url;
-//                intent.putExtra(XConstant.BUSINESS_TYPE_KEY,action);
-//
-//                _this.startActivity(intent);
-//
-//            }
-//        }
-//    }
 
     @JSMethod
     public void openURL(String url, String param, String isChangeNavImage, String isRequireLogin, String isRequireRealName) {
@@ -122,6 +75,18 @@ public class XBusinessLauncherModule extends WXModule {
             callbackId.invoke(getString(mWXSDKInstance.getContext(), k, fileName));
         }
 
+    }
+// 写串口
+    @JSMethod
+    public void WriteStr2Port( String commond) {
+        byte[] to_send = commond.getBytes();
+        MyApp.driver.WriteData(to_send, to_send.length);
+    }
+
+
+    @JSMethod
+    public void onBackClick() {
+        getCurrentActivity().finish();
     }
 
 
@@ -218,22 +183,11 @@ public class XBusinessLauncherModule extends WXModule {
     @JSMethod
     public void sendMessageToid(String uid, String message) {
         sendMessageToJerryFromTom(uid, message);
-        // 测试网络代码
-//        AVObject testObject = new AVObject("TestObject");
-//        testObject.put("words","Hello World!");
-//        testObject.saveInBackground(new SaveCallback() {
-//            @Override
-//            public void done(AVException e) {
-//                if(e == null){
-//                    Log.d("saved","success!");
-//                }
-//            }
-//        });
     }
 
     public void sendMessageToJerryFromTom(final String uid, final String message) {
         // Tom 用自己的名字作为clientId，获取AVIMClient对象实例
-        AVIMClient tom = AVIMClient.getInstance("Tom");
+        AVIMClient tom = AVIMClient.getInstance(getString(mWXSDKInstance.getContext(),"did",null));
         // 与服务器连接
         tom.open(new AVIMClientCallback() {
             @Override

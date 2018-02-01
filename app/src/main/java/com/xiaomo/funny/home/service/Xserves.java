@@ -67,9 +67,6 @@ public class Xserves extends Service {
         MyApp.driver = new CH34xUARTDriver(
                 (UsbManager) getSystemService(Context.USB_SERVICE), this,
                 ACTION_USB_PERMISSION);
-        Logger.d("creac");
-
-        MyApp.getBus().post(new ContionPModel("onCreate"));
         if (!MyApp.driver.UsbFeatureSupported())// 判断系统是否支持USB HOST
         {
 //            Dialog dialog = new AlertDialog.Builder(Xserves.this)
@@ -114,32 +111,32 @@ public class Xserves extends Service {
                             Toast.LENGTH_SHORT).show();
                     isOpen = true;
                     new readThread().start();//开启读线程读取串口接收的数据
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            while (true) {
-
-                                byte[] to_send = "111".getBytes();
-                                int retval = MyApp.driver.WriteData(to_send, to_send.length);
-
-                                Observable.just("")
-                                        .observeOn(AndroidSchedulers.mainThread())
-                                        .subscribe(new Consumer<String>() {
-                                            @Override
-                                            public void accept(String s) throws Exception {
-
-                                                MyApp.getBus().post(new ContionPModel("write"));
-
-                                            }
-                                        });
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    });
+//                    new Thread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            while (true) {
+//
+//                                byte[] to_send = "111".getBytes();
+//                                int retval = MyApp.driver.WriteData(to_send, to_send.length);
+//
+//                                Observable.just("")
+//                                        .observeOn(AndroidSchedulers.mainThread())
+//                                        .subscribe(new Consumer<String>() {
+//                                            @Override
+//                                            public void accept(String s) throws Exception {
+//
+//                                                MyApp.getBus().post(new ContionPModel("write"));
+//
+//                                            }
+//                                        });
+//                                try {
+//                                    Thread.sleep(1000);
+//                                } catch (InterruptedException e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                        }
+//                    });
                 } else {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(Xserves.this);
@@ -214,7 +211,7 @@ public class Xserves extends Service {
                             .subscribe(new Consumer<String>() {
                                 @Override
                                 public void accept(String s) throws Exception {
-                                    MyApp.getBus().post(new ContionPModel("read"));
+                                    MyApp.getBus().post(new ContionPModel(s));
                                 }
                             });
 

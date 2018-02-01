@@ -1,4 +1,4 @@
-package com.xiaomo.funny.home;
+package com.xiaomo.funny.home.service;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.hwangjr.rxbus.RxBus;
+import com.xiaomo.funny.home.Logger;
 import com.xiaomo.funny.home.application.MyApp;
 import com.xiaomo.funny.home.model.EventModel;
 import com.xiaomo.funny.home.model.UserModel;
@@ -52,18 +53,18 @@ public class MyReceiver extends BroadcastReceiver {
                 Logger.d(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
                 final String str = bundle.getString(JPushInterface.EXTRA_EXTRA);
 //                processCustomMessage(context, bundle);
+
                 EventModel eventModel = null;
                 try {
                     eventModel = new Gson().fromJson(str, EventModel.class);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
 
                 if (eventModel == null) return;
-
-                final EventModel finalEventModel = eventModel;
-
+                MyApp.getBus().post(eventModel);
 //				byte[] to_send = toByteArray2(writeText.getText().toString());
                 if (haveUser(context, eventModel.getC())) {
                     byte[] to_send = eventModel.getE().getBytes();
@@ -71,7 +72,7 @@ public class MyReceiver extends BroadcastReceiver {
                     if (retval < 0) showToast("写失败", context);
                     else showToast("写成功", context);
                 } else {
-                    showToast("...", context);
+                    showToast("收到未注册用户发来的消息", context);
                     MyApp.getBus().post(new UserModel(eventModel.getC(), eventModel.getF(), 0));
                 }
 

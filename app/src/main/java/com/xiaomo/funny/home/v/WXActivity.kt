@@ -13,6 +13,8 @@ import com.taobao.weex.WXSDKInstance
 import com.taobao.weex.common.WXRenderStrategy
 import com.xiaomo.funny.home.R
 import com.xiaomo.funny.home.application.MyApp
+import com.xiaomo.funny.home.model.ContionPModel
+import com.xiaomo.funny.home.model.EventModel
 import com.xiaomo.funny.home.model.UserModel
 import com.xiaomo.funny.home.weex.extend.util.ScreenUtil
 import java.util.*
@@ -65,6 +67,7 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
             //远程路径
             var path = intent?.extras?.getString("url")
             val host = "http://10.5.6.7:8081/"
+//            val host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"
 //            val url = host + "dist/index.js"
             if (path == null) {
                 path = "module/home"
@@ -82,6 +85,7 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
 //                }).start()
             }
             val url = host + "dist/" + path + ".js"
+
 //            val url = "file://assets/dist/" + path + ".js"
             renderPageByURL(url, null)
         }
@@ -145,6 +149,27 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         params.put("userNickname", userModel.userNickname)
         params.put("userId", userModel.userId)
         mWXSDKInstance?.fireGlobalEventCallback("onnewuser", params)
+
+    }
+
+    @Subscribe(thread = EventThread.MAIN_THREAD)
+    fun onReadPortEvent(userModel: ContionPModel) {
+        userModel.commond?.let {
+            val params = HashMap<String, Any>()
+            params.put("commond", it)
+            mWXSDKInstance?.fireGlobalEventCallback("onReadPortEvent", params)
+        }
+
+    }
+
+    @Subscribe(thread = EventThread.MAIN_THREAD)
+    fun ongetJpush(userModel: EventModel) {
+        val params = HashMap<String, Any>()
+        params.put("c", userModel.c)
+        params.put("d", userModel.d)
+        params.put("e", userModel.e)
+        params.put("f", userModel.f)
+        mWXSDKInstance?.fireGlobalEventCallback("onReadPortEvent", params)
 
     }
 //

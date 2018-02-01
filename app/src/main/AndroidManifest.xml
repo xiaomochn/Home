@@ -55,7 +55,7 @@
         </receiver>
         <!-- 实时通信模块、推送 END -->
         <receiver
-            android:name=".MyReceiver"
+            android:name=".service.MyReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
