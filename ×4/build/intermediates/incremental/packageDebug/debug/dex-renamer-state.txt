@@ -1,4 +1,0 @@
-#Tue Dec 26 13:25:35 CST 2017
-base.0=/Users/xiaomochn/File/Home/×4/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex
