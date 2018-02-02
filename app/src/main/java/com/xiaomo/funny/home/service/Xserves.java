@@ -38,7 +38,7 @@ public class Xserves extends Service {
     public static void startService(Context context) {
         if (!AppUtils.isServiceRunning(context, Xserves.class.getName())) {
             context.startService(new Intent(context, Xserves.class));
-        }else {
+        } else {
             MyApp.getBus().post(new XservesModel("init"));
         }
 
@@ -93,7 +93,7 @@ public class Xserves extends Service {
                             Toast.LENGTH_SHORT).show();
                     MyApp.driver.CloseDevice();
                     try {
-                        stopService(new Intent(this,Xserves.class));
+                        stopService(new Intent(this, Xserves.class));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -109,6 +109,8 @@ public class Xserves extends Service {
                     }
                     Toast.makeText(Xserves.this, "打开设备成功!",
                             Toast.LENGTH_SHORT).show();
+                    MyApp.driver.SetConfig(115200, (byte) 8, (byte) 1, (byte) 0,//配置串口波特率，函数说明可参照编程手册
+                            (byte) 0);
                     isOpen = true;
                     new readThread().start();//开启读线程读取串口接收的数据
 //                    new Thread(new Runnable() {

@@ -30,20 +30,34 @@
         android:text="这里会显示 otg收到的数据,下边那一串是微信用户id"
         app:layout_constraintTop_toTopOf="parent"
      />
+
     <Button
         android:id="@+id/topPanel"
-        android:text="to2"
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+        android:layout_height="wrap_content"
+        android:text="串口设置界面一般别点"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/topPanel3"
         android:layout_width="wrap_content"
 
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="设置界面"
-        tools:layout_editor_absoluteX="96dp"
+        app:layout_constraintStart_toEndOf="@+id/topPanel"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/topPanel2"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:text="检查更新"
+        app:layout_constraintStart_toEndOf="@+id/topPanel"
         tools:layout_editor_absoluteY="0dp" />
 
 </android.support.constraint.ConstraintLayout>

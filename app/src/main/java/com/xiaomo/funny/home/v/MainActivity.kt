@@ -1,12 +1,18 @@
 package com.xiaomo.funny.home.v
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import android.widget.Toast
 import cn.jpush.android.api.JPushInterface
 import cn.jpush.android.data.JPushLocalNotification
 import com.code19.library.DeviceUtils
+import com.iflytek.autoupdate.IFlytekUpdate
+import com.iflytek.autoupdate.UpdateConstants
+import com.iflytek.autoupdate.UpdateErrorCode
+import com.iflytek.autoupdate.UpdateType
 import com.xiaomo.funny.home.Logger
 import com.xiaomo.funny.home.R
 import com.xiaomo.funny.home.p.ContionPres
@@ -39,7 +45,8 @@ class MainActivity : AppCompatActivity(), IContionView {
         mContionPres = ContionPres(this)
         topPanel.setOnClickListener({ startActivity(Intent(this, X4Activity::class.java)) })
         topPanel3.setOnClickListener({ startActivity(Intent(this, WXActivity::class.java)) })
-
+//        topPanel3.setOnClickListener({ checkUpdate() })
+        topPanel2.setOnClickListener({ checkUpdate() })
     }
 
     fun fffff() {
@@ -62,4 +69,33 @@ class MainActivity : AppCompatActivity(), IContionView {
         super.onDestroy()
         mContionPres?.onDestory()
     }
+
+    fun checkUpdate() {
+        var updManager = IFlytekUpdate.getInstance(this)
+        updManager.setParameter(UpdateConstants.EXTRA_WIFIONLY, "true")
+        // 设置通知栏icon，默认使用SDK默认
+        updManager.setParameter(UpdateConstants.EXTRA_NOTI_ICON, "false")
+        updManager.setParameter(UpdateConstants.EXTRA_STYLE, UpdateConstants.UPDATE_UI_DIALOG)
+
+        updManager.autoUpdate(this@MainActivity, { errorcode, result ->
+            if (errorcode == UpdateErrorCode.OK && result != null) {
+                if (result!!.getUpdateType() === UpdateType.NoNeed) {
+                    showTip("已经是最新版本！")
+
+                }
+                updManager.showUpdateInfo(this@MainActivity, result)
+            } else {
+                showTip("请求更新失败！\n更新错误码：$errorcode")
+            }
+        })
+
+
+    }
+
+    private fun showTip(str: String) {
+        runOnUiThread {
+            Toast.makeText(this,str,Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }
