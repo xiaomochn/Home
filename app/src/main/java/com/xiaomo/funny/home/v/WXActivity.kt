@@ -66,7 +66,7 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         } else {
             //远程路径
             var path = intent?.extras?.getString("url")
-            val host = "http://10.5.6.7:8081/"
+            val host = "http://10.5.6.242:8081/"
 //            val host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"
 //            val url = host + "dist/index.js"
             if (path == null) {
