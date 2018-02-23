@@ -196,6 +196,7 @@ public class Xserves extends Service {
 
     private class readThread extends Thread {
 
+        @Override
         public void run() {
 
             byte[] buffer = new byte[4096];
@@ -208,6 +209,10 @@ public class Xserves extends Service {
                 if (length > 0) {
                     String recv = new String(buffer, 0, length);
                     Logger.d(recv);
+                    if (recv.contains("cardnum:") && MyReceiver.haveUser(Xserves.this, recv.substring(8))) {
+                        byte[] toSend = "opendoor".getBytes();
+                        int retval = MyApp.driver.WriteData(toSend, toSend.length);
+                    }
                     io.reactivex.Observable.just("")
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(new Consumer<String>() {
