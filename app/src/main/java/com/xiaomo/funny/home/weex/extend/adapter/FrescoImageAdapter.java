@@ -204,7 +204,6 @@
  */
 package com.xiaomo.funny.home.weex.extend.adapter;
 
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;

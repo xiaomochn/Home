@@ -5,9 +5,11 @@ package com.xiaomo.funny.home.model;
  */
 
 public class UserModel {
+    //用户id
     String userId;
     String userNickname;
-    int weight ;
+    // 用户权重
+    int weight;
 
     public String getUserId() {
         return userId;

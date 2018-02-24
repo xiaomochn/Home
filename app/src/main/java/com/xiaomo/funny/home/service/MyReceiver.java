@@ -14,9 +14,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
-import com.hwangjr.rxbus.RxBus;
-import com.xiaomo.funny.home.Logger;
-import com.xiaomo.funny.home.application.MyApp;
+import com.orhanobut.logger.Logger;
+import com.xiaomo.funny.home.MyApp;
 import com.xiaomo.funny.home.model.EventModel;
 import com.xiaomo.funny.home.model.UserModel;
 
@@ -42,6 +41,7 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(final Context context, Intent intent) {
         try {
             Bundle bundle = intent.getExtras();
+
             Logger.d(TAG, "[MyReceiver] onReceive - " + intent.getAction() + ", extras: " + printBundle(bundle));
 
             if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
@@ -63,12 +63,14 @@ public class MyReceiver extends BroadcastReceiver {
                 }
 
 
-                if (eventModel == null) return;
+                if (eventModel == null) {
+                    return;
+                }
                 MyApp.getBus().post(eventModel);
-//				byte[] to_send = toByteArray2(writeText.getText().toString());
                 if (haveUser(context, eventModel.getC())) {
                     byte[] to_send = eventModel.getE().getBytes();
-                    int retval = MyApp.driver.WriteData(to_send, to_send.length);//写数据，第一个参数为需要发送的字节数组，第二个参数为需要发送的字节长度，返回实际发送的字节长度
+                    //写数据，第一个参数为需要发送的字节数组，第二个参数为需要发送的字节长度，返回实际发送的字节长度
+                    int retval = MyApp.driver.WriteData(to_send, to_send.length);
                     if (retval < 0) {
                         showToast("写失败", context);
                     } else {

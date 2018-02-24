@@ -1,14 +1,22 @@
 package com.xiaomo.funny.home.model;
 
 /**
- * Created by qiao on 19/01/2018.
+ * 客户端发来的请求
+ *
+ * @author qiao
+ * @date 19/01/2018
  */
 
 public class EventModel {
-    String c;// 用户id
-    String e;// 操作
-    String d;// 我也不知道是啥
-    String f;// 昵称
+    // 用户id
+    String c;
+    // 操作
+    String e;
+    // 我也不知道是啥
+    String d;
+    // 昵称
+    String f;
+
     public String getC() {
         return c;
     }

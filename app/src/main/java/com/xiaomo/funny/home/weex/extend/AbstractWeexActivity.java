@@ -218,7 +218,7 @@ import android.view.ViewGroup;
 import com.taobao.weex.IWXRenderListener;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.common.WXRenderStrategy;
-import com.xiaomo.funny.home.weex.extend.util.ScreenUtil;
+import com.xiaomo.funny.home.util.ScreenUtil;
 
 import java.util.HashMap;
 import java.util.Map;
