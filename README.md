@@ -30,6 +30,6 @@ Weex 页面相关的大部分用Weex实现
 这个项目是之前个人练手的,里边东西比较杂
 之所以用weex一方面是我在学,另一方面,原生层提供基础接口,weex层提供ui,后期大部分扩展在weex上做就可以,修改代码随时生效,不用打包App,在weex层面就能完成一般自定义硬件的配置
 
-##关联项目
+## 关联项目
 ### [Weex前端部分](https://github.com/xiaomochn/homevue)
 ### [微信小程序部分](https://github.com/xiaomochn/homewx)
