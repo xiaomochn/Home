@@ -78,8 +78,8 @@ public class MyReceiver extends BroadcastReceiver {
                     }
                 } else {
                     showToast("收到未注册用户发来的消息", context);
-                    MyApp.getBus().post(new UserModel(eventModel.getC(), eventModel.getF(), 0));
                 }
+                MyApp.getBus().post(new UserModel(eventModel.getC(), eventModel.getF(), 0));
 
             } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
                 Logger.d(TAG, "[MyReceiver] 接收到推送下来的通知");

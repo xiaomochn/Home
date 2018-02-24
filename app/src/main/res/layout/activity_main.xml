@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
-        android:text="这里会显示 otg收到的数据,下边那一串是微信用户id"
+        android:text="UI层(主机面)是weex的需要把weex项目跑起来,或者配置外网地址"
         app:layout_constraintTop_toTopOf="parent"
      />
 
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
 
         android:layout_height="wrap_content"
-        android:text="串口设置界面一般别点"
+        android:text="别点"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
@@ -46,7 +46,7 @@
 
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="设置界面"
+        android:text="点这个(主界面)"
         app:layout_constraintStart_toEndOf="@+id/topPanel"
         tools:layout_editor_absoluteY="0dp" />
 

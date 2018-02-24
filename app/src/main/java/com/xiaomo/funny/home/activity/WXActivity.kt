@@ -15,7 +15,10 @@ import com.xiaomo.funny.home.model.EventModel
 import com.xiaomo.funny.home.model.UserModel
 import com.xiaomo.funny.home.util.ScreenUtil
 import java.util.*
-// 废弃 不用管
+
+/**
+ * weex页面
+ * */
 class WXActivity : AppCompatActivity(), IWXRenderListener {
     internal var mWXSDKInstance: WXSDKInstance? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,25 +70,12 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
 //            val url = host + "dist/index.js"
             if (path == null) {
                 path = "module/home"
-            } else {
-//                Thread(Runnable {
-//                    var i = 0;
-//                    while (true) {
-//                        val params = HashMap<String, Any>()
-//                        params.put("userNickname", i++)
-//                        params.put("userId", "id" + i)
-//                        mWXSDKInstance?.fireGlobalEventCallback("onnewuser", params)
-//                        Thread.sleep(1000)
-//                    }
-//
-//                }).start()
             }
             val url = host + "dist/" + path + ".js"
 
 //            val url = "file://assets/dist/" + path + ".js"
             renderPageByURL(url, null)
         }
-//        mWXSDKInstance!!.render("WXSample", WXFileUtils.loadFileContent("hello.js", this), null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC)
     }
 
     protected fun renderPageByURL(url: String, jsonInitData: String?) {
@@ -165,7 +155,7 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         params.put("d", userModel.d)
         params.put("e", userModel.e)
         params.put("f", userModel.f)
-        mWXSDKInstance?.fireGlobalEventCallback("onReadPortEvent", params)
+        mWXSDKInstance?.fireGlobalEventCallback("onJpushPortEvent", params)
 
     }
 //
