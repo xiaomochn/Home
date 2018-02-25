@@ -18,6 +18,7 @@ import com.orhanobut.logger.Logger;
 import com.xiaomo.funny.home.MyApp;
 import com.xiaomo.funny.home.model.EventModel;
 import com.xiaomo.funny.home.model.UserModel;
+import com.xiaomo.funny.home.weex.bll.common.module.XBusinessLauncherModule;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,12 +69,16 @@ public class MyReceiver extends BroadcastReceiver {
                 }
                 MyApp.getBus().post(eventModel);
                 if (haveUser(context, eventModel.getC())) {
+
                     byte[] to_send = eventModel.getE().getBytes();
                     //写数据，第一个参数为需要发送的字节数组，第二个参数为需要发送的字节长度，返回实际发送的字节长度
                     int retval = MyApp.driver.WriteData(to_send, to_send.length);
                     if (retval < 0) {
+
                         showToast("写失败", context);
+                        XBusinessLauncherModule.sendMessageToJerryFromTom(context,XBusinessLauncherModule.getDeviceId(context),"处理失败");
                     } else {
+                        XBusinessLauncherModule.sendMessageToJerryFromTom(context,XBusinessLauncherModule.getDeviceId(context),"正在处理");
                         showToast("写成功", context);
                     }
                 } else {

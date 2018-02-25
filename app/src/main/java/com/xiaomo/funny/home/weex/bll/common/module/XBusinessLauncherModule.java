@@ -172,8 +172,12 @@ public class XBusinessLauncherModule extends WXModule {
 
     @JSMethod
     public void getDeviceId(JSCallback callbackId) {
-        callbackId.invoke(DeviceUtils.getAndroidID(mWXSDKInstance.getContext()));
+        callbackId.invoke(getDeviceId(mWXSDKInstance.getContext()));
 
+    }
+
+    public static String getDeviceId(Context context) {
+        return DeviceUtils.getAndroidID(context);
     }
 
     @JSMethod
@@ -184,16 +188,16 @@ public class XBusinessLauncherModule extends WXModule {
 
     @JSMethod
     public void sendMessageToid(String uid, String message) {
-        sendMessageToJerryFromTom(uid, message);
+        sendMessageToJerryFromTom(mWXSDKInstance.getContext(), uid, message);
     }
 
     /**
      * 给微信客户端发消息,当前设备用设备id做名字
      */
 
-    public void sendMessageToJerryFromTom(final String uid, final String message) {
+    public static void sendMessageToJerryFromTom(Context context, final String uid, final String message) {
         // Tom 用自己的名字作为clientId，获取AVIMClient对象实例
-        AVIMClient tom = AVIMClient.getInstance(getString(mWXSDKInstance.getContext(), "did", null));
+        AVIMClient tom = AVIMClient.getInstance("devices" + getDeviceId(context));
         // 与服务器连接
         tom.open(new AVIMClientCallback() {
             @Override

@@ -19,6 +19,7 @@ import com.xiaomo.funny.home.R;
 import com.xiaomo.funny.home.MyApp;
 import com.xiaomo.funny.home.model.OtgDataModel;
 import com.xiaomo.funny.home.model.InitOgtModel;
+import com.xiaomo.funny.home.weex.bll.common.module.XBusinessLauncherModule;
 
 
 import cn.wch.ch34xuartdriver.CH34xUARTDriver;
@@ -181,9 +182,13 @@ public class ReadOtgServes extends Service {
                 if (length > 0) {
                     final String recv = new String(buffer, 0, length);
                     Logger.d(recv);
+
                     if (recv.contains("cardnum:") && MyReceiver.haveUser(ReadOtgServes.this, recv.substring(8))) {
-                        byte[] toSend = "opendoor".getBytes();
+                        byte[] toSend = "opendoor\r\n".getBytes();
                         MyApp.driver.WriteData(toSend, toSend.length);
+                    }
+                    if (recv.contains("statusn:")){
+                        XBusinessLauncherModule.sendMessageToJerryFromTom(ReadOtgServes.this,XBusinessLauncherModule.getDeviceId(ReadOtgServes.this),recv);
                     }
                     Observable.just("")
                             .observeOn(AndroidSchedulers.mainThread())
