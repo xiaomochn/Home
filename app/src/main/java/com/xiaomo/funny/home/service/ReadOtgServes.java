@@ -2,9 +2,11 @@ package com.xiaomo.funny.home.service;
 
 import android.app.AlertDialog;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.usb.UsbManager;
 import android.os.Binder;
 import android.os.IBinder;
@@ -28,7 +30,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 
 /**
- * Created by xiaomochn on 22/12/2017.
+ *
+ * @author xiaomochn
+ * @date 22/12/2017
  */
 
 public class ReadOtgServes extends Service {
@@ -60,8 +64,41 @@ public class ReadOtgServes extends Service {
             e.printStackTrace();
         }
         initConnection();
-
+        registerMyReceiver();
     }
+
+    /**
+     * Register usb receiver.
+     */
+    public void registerMyReceiver() {
+        // Register receiver.
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_USB_PERMISSION);
+        filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
+        filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+        registerReceiver(mUsbReceiver, filter);
+    }
+
+    /**
+     * Unregister usb receiver.
+     */
+    public void unregisterMyReceiver() {
+        unregisterReceiver(mUsbReceiver);
+    }
+
+    private final BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(intent.getAction())) {
+                initConnection();
+
+            } else if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(intent.getAction())) {
+                isOpen = false;
+                Toast.makeText(ReadOtgServes.this,"设备已拔出",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
 
     void initConnection() {
         MyApp.driver = new CH34xUARTDriver(
@@ -92,12 +129,6 @@ public class ReadOtgServes extends Service {
                     Toast.makeText(ReadOtgServes.this, "打开设备失败!",
                             Toast.LENGTH_SHORT).show();
                     MyApp.driver.CloseDevice();
-                    try {
-                        stopService(new Intent(this, ReadOtgServes.class));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
                 } else if (retval == 0) {
                     //对串口设备进行初始化操作
                     if (!MyApp.driver.UartInit()) {
@@ -155,6 +186,7 @@ public class ReadOtgServes extends Service {
     public void onDestroy() {
         MyApp.getBus().unregister(this);
         isOpen = false;
+        unregisterMyReceiver();
         super.onDestroy();
     }
 
@@ -176,6 +208,11 @@ public class ReadOtgServes extends Service {
 
             while (true) {
                 if (!isOpen) {
+                    try {
+                        Thread.sleep(3 * 1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 }
                 int length = MyApp.driver.ReadData(buffer, 4096);
@@ -187,8 +224,8 @@ public class ReadOtgServes extends Service {
                         byte[] toSend = "opendoor\r\n".getBytes();
                         MyApp.driver.WriteData(toSend, toSend.length);
                     }
-                    if (recv.contains("statusn:")){
-                        XBusinessLauncherModule.sendMessageToJerryFromTom(ReadOtgServes.this,XBusinessLauncherModule.getDeviceId(ReadOtgServes.this),recv);
+                    if (recv.contains("statusn:")) {
+                        XBusinessLauncherModule.sendMessageToJerryFromTom(ReadOtgServes.this, XBusinessLauncherModule.getDeviceId(ReadOtgServes.this), recv);
                     }
                     Observable.just("")
                             .observeOn(AndroidSchedulers.mainThread())

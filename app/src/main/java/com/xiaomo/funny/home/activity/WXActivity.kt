@@ -65,10 +65,15 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         } else {
             //远程路径
             var path = intent?.extras?.getString("url")
-//            val host = "http://10.5.6.242:8081/"
-            val host = "http://192.168.1.8:8081/"
+            var host = "http://10.5.6.245:8081/"
+//            val host = "http://192.168.1.8:8081/"
 
-//            val host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"
+//            val host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"\
+            if (MyApp.getInstance().isDebug) {
+                host = "http://10.5.6.245:8081/"
+            } else {
+                host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"
+            }
 //            val url = host + "dist/index.js"
             if (path == null) {
                 path = "module/home"

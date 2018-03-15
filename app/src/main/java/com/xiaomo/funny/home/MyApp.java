@@ -22,6 +22,7 @@ public class MyApp extends Application {
 
     private static MyApp context;
 
+    private boolean isDebug = false;
     public static MyApp getInstance() {
         return context;
     }
@@ -60,5 +61,13 @@ public class MyApp extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+    }
+
+    public boolean isDebug() {
+        return isDebug;
+    }
+
+    public void setDebug(boolean debug) {
+        isDebug = debug;
     }
 }

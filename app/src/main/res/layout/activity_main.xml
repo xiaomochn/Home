@@ -60,4 +60,14 @@
         app:layout_constraintStart_toEndOf="@+id/topPanel"
         tools:layout_editor_absoluteY="0dp" />
 
+    <Button
+        android:id="@+id/isdebug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="远程"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topPanel" />
+
 </android.support.constraint.ConstraintLayout>

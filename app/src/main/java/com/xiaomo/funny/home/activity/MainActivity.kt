@@ -12,6 +12,7 @@ import com.iflytek.autoupdate.IFlytekUpdate
 import com.iflytek.autoupdate.UpdateConstants
 import com.iflytek.autoupdate.UpdateErrorCode
 import com.iflytek.autoupdate.UpdateType
+import com.xiaomo.funny.home.MyApp
 import com.xiaomo.funny.home.R
 import com.xiaomo.funny.home.service.ReadOtgServes
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,11 +31,17 @@ class MainActivity : AppCompatActivity() {
         JPushInterface.setAlias(application, Date().time.toInt(), appId)
         text.text = appId + " regis: " + registrationID
         text.setOnClickListener({ fffff() })
-        ReadOtgServes.startService(applicationContext)
+
 
         topPanel.setOnClickListener({ startActivity(Intent(this, X4Activity::class.java)) })
         topPanel3.setOnClickListener({ startActivity(Intent(this, WXActivity::class.java)) })
         topPanel2.setOnClickListener({ checkUpdate() })
+        isdebug.setOnClickListener({
+            MyApp.getInstance().isDebug = !MyApp.getInstance().isDebug
+
+            isdebug.setText("isDebug" + MyApp.getInstance().isDebug)
+
+        })
     }
 
     fun fffff() {
@@ -80,6 +87,11 @@ class MainActivity : AppCompatActivity() {
         runOnUiThread {
             Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        ReadOtgServes.startService(applicationContext)
     }
 
 }
