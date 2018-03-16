@@ -79,7 +79,9 @@ public class XBusinessLauncherModule extends WXModule {
     @JSMethod
     public void WriteStr2Port(String commond) {
         byte[] to_send = commond.getBytes();
-        MyApp.driver.WriteData(to_send, to_send.length);
+        if (MyApp.driver != null) {
+            MyApp.driver.WriteData(to_send, to_send.length);
+        }
     }
 
 

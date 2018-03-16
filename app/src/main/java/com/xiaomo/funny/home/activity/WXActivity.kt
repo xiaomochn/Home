@@ -70,7 +70,7 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
 
 //            val host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"\
             if (MyApp.getInstance().isDebug) {
-                host = "http://10.5.6.245:8081/"
+                host = "http://10.5.6.180:8081/"
             } else {
                 host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"
             }
