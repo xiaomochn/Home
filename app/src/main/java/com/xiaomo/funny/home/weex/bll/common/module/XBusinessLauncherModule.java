@@ -48,11 +48,12 @@ public class XBusinessLauncherModule extends WXModule {
 
 
     @JSMethod
-    public void openURL(String url, String param, String isChangeNavImage, String isRequireLogin, String isRequireRealName) {
+    public void openURL(String url, String param) {
         Activity _this = getCurrentActivity();
         Intent intent = new Intent(_this, WXActivity.class);
         String action = "weex:" + url;
         intent.putExtra("url", url);
+        intent.putExtra("param", param);
         intent.putExtra(XConstant.BUSINESS_TYPE_KEY, action);
         _this.startActivity(intent);
 

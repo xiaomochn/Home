@@ -1,7 +1,9 @@
 package com.xiaomo.funny.home.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import com.hwangjr.rxbus.annotation.Subscribe
 import com.hwangjr.rxbus.thread.EventThread
@@ -15,6 +17,10 @@ import com.xiaomo.funny.home.model.EventModel
 import com.xiaomo.funny.home.model.UserModel
 import com.xiaomo.funny.home.util.ScreenUtil
 import java.util.*
+import android.telephony.TelephonyManager
+import org.json.JSONException
+import org.json.JSONObject
+
 
 /**
  * weex页面
@@ -35,7 +41,9 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
          * width 为-1 默认全屏，可以自己定制。
          * height =-1 默认全屏，可以自己定制。
          */
+
         val isDebut = true
+        getSerialNumber()
         if (!isDebut) {
             //本地文件路径，读取代码片段
 //            var bundleUrl = ""
@@ -65,12 +73,19 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
         } else {
             //远程路径
             var path = intent?.extras?.getString("url")
+            var param = intent?.extras?.getString("param")
+            var data : JSONObject? = null
             var host = "http://10.5.6.245:8081/"
+            if (param == null) {
+                //data必须是json结构的字符串
+                param = "{}"
+
+            }
 //            val host = "http://192.168.1.8:8081/"
 
 //            val host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"\
             if (MyApp.getInstance().isDebug) {
-                host = "http://10.5.6.180:8081/"
+                host = "http://10.5.119.243:8081/"
             } else {
                 host = "http://oqgi5s4fg.bkt.clouddn.com/homevue/"
             }
@@ -81,8 +96,35 @@ class WXActivity : AppCompatActivity(), IWXRenderListener {
             val url = host + "dist/" + path + ".js"
 
 //            val url = "file://assets/dist/" + path + ".js"
-            renderPageByURL(url, null)
+            renderPageByURL(url, param)
         }
+    }
+
+    private fun getSerialNumber(): String? {
+
+        var serial: String? = null
+
+        try {
+
+            val c = Class.forName("android.os.SystemProperties")
+
+            val get = c.getMethod("get", String::class.java)
+
+            serial = get.invoke(c, "ro.serialno") as String
+
+        } catch (e: Exception) {
+
+            e.printStackTrace()
+
+        }
+        Log.d("111111",serial)
+
+
+
+        val imei = (getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager).deviceId
+        Log.d("111111imei",imei)
+        return serial
+
     }
 
     protected fun renderPageByURL(url: String, jsonInitData: String?) {
