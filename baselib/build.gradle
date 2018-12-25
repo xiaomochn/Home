@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    api "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    api "com.android.support:recyclerview-v7:${rootProject.ext.supportLibVersion}"
+    api "com.android.support:support-annotations:${project.supportLibVersion}"
+    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    api 'com.code19.library:library:0.1.4'
+    api 'cn.jiguang.sdk:jpush:3.1.0'
+    api 'com.google.code.findbugs:jsr305:2.0.1'
+    api 'com.orhanobut:logger:2.2.0'
+    // 此处以JPush 3.0.9 版本为例。
+    api 'cn.jiguang.sdk:jcore:1.1.8'
+    // 此处以JCore 1.1.7 版本为例。
+    api 'com.squareup.okhttp3:okhttp:3.9.1'
+    api 'com.orhanobut:logger:2.1.1'
+    api 'com.hwangjr.rxbus:rxbus:2.0.0'
+    api 'com.alibaba:fastjson:1.2.37'
+    api 'com.android.support:multidex:1.0.2'
+    api 'com.taobao.android:weex_sdk:0.18.0@aar'
+    api 'com.facebook.fresco:fresco:0.12.0+'
+    api 'com.facebook.fresco:animated-gif:0.12.0'
+
+
+    testImplementation 'junit:junit:4.12'
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion "28.0.0"
+            }
+        }
+    }
+}
